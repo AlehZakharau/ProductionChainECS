@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Ecs.View
 {
-    public abstract class LinkableView : MonoBehaviour, ILinkable
+    public abstract class LinkView : MonoBehaviour, ILinkable
     {
         protected EcsEntity Entity;
         public int Hash => transform.GetHashCode();

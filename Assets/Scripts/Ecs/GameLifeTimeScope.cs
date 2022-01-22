@@ -1,4 +1,5 @@
 ﻿using Ecs.Fabrics;
+using Ecs.Fabrics.Fabrics;
 using Leopotam.Ecs;
 using UnityEngine;
 using UnityTemplateProjects;
@@ -11,6 +12,7 @@ namespace Ecs
     {
         [SerializeField] private DataView dataView;
         [SerializeField] private Templates templates;
+        [SerializeField] private BuildingFabric buildingFabric;
         protected override void Configure(IContainerBuilder builder)
         {
             RegisterWorld(builder);
@@ -39,6 +41,7 @@ namespace Ecs
         {
             builder.RegisterComponent(dataView);
             builder.RegisterComponent(templates);
+            builder.RegisterInstance(buildingFabric).As<IBuildingFactory>();
 
         }
     }

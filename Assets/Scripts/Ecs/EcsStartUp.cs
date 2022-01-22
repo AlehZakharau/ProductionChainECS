@@ -22,7 +22,6 @@ namespace Ecs
             var dataManager = new DataManager();
             var gameDataBase = new GameDataBase();
             
-            buildingConstructor.CreateBuildings();
 
             systems = new EcsSystems(world);
             
@@ -31,6 +30,8 @@ namespace Ecs
                 .Inject(gameDataBase)
                 
                 .Init();
+            
+            buildingConstructor.CreateBuildings();
             Debug.Log($"CreateWorld {world.IsAlive().ToString()}");
         }
     }

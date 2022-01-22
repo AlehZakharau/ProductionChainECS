@@ -2,7 +2,7 @@
 
 namespace UnityTemplateProjects
 {
-    public class ExtractorView : LinkableView
+    public class ExtractorView : LinkView
     {
         
     }

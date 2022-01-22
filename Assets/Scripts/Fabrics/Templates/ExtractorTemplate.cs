@@ -1,4 +1,5 @@
-﻿using Ecs.Fabrics.BuildingsConfigs;
+﻿using System;
+using Ecs.Fabrics.BuildingsConfigs;
 using UnityEngine;
 using UnityTemplateProjects;
 
