@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using Ecs.Fabrics;
+using Leopotam.Ecs;
 using UnityEngine;
 using UnityTemplateProjects;
 using VContainer;
@@ -9,15 +10,19 @@ namespace Ecs
     public class GameLifeTimeScope : LifetimeScope
     {
         [SerializeField] private DataView dataView;
+        [SerializeField] private Templates templates;
         protected override void Configure(IContainerBuilder builder)
         {
             RegisterWorld(builder);
+            
             builder.RegisterEntryPoint<DataController>();
-            builder.RegisterComponent(dataView);
+            builder.Register<IBuildingConstructor, BuildingConstructor>(Lifetime.Singleton);
+            
+            RegisterComponents(builder);
+            
             base.Configure(builder);
         }
-
-
+        
         private void RegisterWorld(IContainerBuilder builder)
         {
             builder.RegisterEntryPoint<EcsStartUp>();
@@ -27,6 +32,14 @@ namespace Ecs
 
                 return world;
             }, Lifetime.Singleton);
+        }
+
+
+        private void RegisterComponents(IContainerBuilder builder)
+        {
+            builder.RegisterComponent(dataView);
+            builder.RegisterComponent(templates);
+
         }
     }
 }
