@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4ba734ad6644d5a8a9e2711e9cb568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transform: {fileID: 192096158}
   extractorConfig: {fileID: 11400000, guid: ee7dffa11e40e06418da481503fd05f5, type: 2}
 --- !u!4 &192096158
 Transform:
@@ -859,6 +858,7 @@ MonoBehaviour:
   autoInjectGameObjects: []
   dataView: {fileID: 1981775064}
   templates: {fileID: 1091641713}
+  buildingFabric: {fileID: 11400000, guid: a1ff0539229872e46bb80538ca9703f9, type: 2}
 --- !u!4 &1109029385
 Transform:
   m_ObjectHideFlags: 0
@@ -1144,7 +1144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4ba734ad6644d5a8a9e2711e9cb568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transform: {fileID: 1850265562}
   extractorConfig: {fileID: 11400000, guid: ee7dffa11e40e06418da481503fd05f5, type: 2}
 --- !u!4 &1850265562
 Transform:

@@ -11,7 +11,7 @@ namespace UnityTemplateProjects
         private readonly IGameDataBase dataBase = default;
         
         //private readonly EcsFilter<Manufacture, DemandUpgradeResource, ResourceComponent> manufactures = default;
-        private readonly EcsFilter<Save> save = default;
+        private readonly EcsFilter<SaveFlag> save = default;
 
         public void Init()
         {

@@ -2,7 +2,7 @@
 
 namespace UnityTemplateProjects.Components
 {
-    public struct Save : IEcsIgnoreInFilter
+    public struct LoadFlag : IEcsIgnoreInFilter
     {
         
     }

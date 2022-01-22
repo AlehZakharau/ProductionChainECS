@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Ecs.Components;
 using Ecs.Fabrics.Fabrics;
+using Ecs.Systems.Manufacture;
 using Ecs.View;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -29,6 +30,7 @@ namespace Ecs.Fabrics
 
         public void CreateBuildings()
         {
+            var index =0;
             buildingTemplates = templates.GetTemplates();
             foreach (var template in buildingTemplates)
             {
@@ -42,7 +44,13 @@ namespace Ecs.Fabrics
                         var view = instance.GetComponent<ILinkable>();
                         var extractorEntity = world.NewEntity();
                         extractorEntity.Get<LinkComponent>().View = view;
+                        extractorEntity.Get<ExtractorFlag>();
+                        extractorEntity.Get<ProductionSpeedComponent>().ProductionSpeed =
+                            extractorTemplate.ExtractorConfig.productionSpeed;
+                        extractorEntity.Get<ResourceComponent>().Resource = 
+                            extractorTemplate.ExtractorConfig.resource;
                         view.Link(extractorEntity);
+                        view.Transform.gameObject.name = "Extractor_" + index++;
                         break;
                     default:
                         Debug.Log($"This type doesn't exist");

@@ -1,4 +1,7 @@
-﻿using Ecs.Fabrics;
+﻿using System;
+using Ecs.Fabrics;
+using Ecs.Systems.Manufacture;
+using Ecs.Systems.Manufacture.Production;
 using Leopotam.Ecs;
 using UnityEngine;
 using UnityTemplateProjects;
@@ -6,7 +9,7 @@ using VContainer.Unity;
 
 namespace Ecs
 {
-    public class EcsStartUp : IStartable
+    public class EcsStartUp : IStartable, ITickable, IDisposable
     {
         private readonly EcsWorld world;
         private readonly IBuildingConstructor buildingConstructor;
@@ -21,18 +24,37 @@ namespace Ecs
         {
             var dataManager = new DataManager();
             var gameDataBase = new GameDataBase();
-            
 
             systems = new EcsSystems(world);
             
             systems
+                .Add(new ProductionSystem())
+                .Add(new ExtractorProductionSystem())
+                
                 .Inject(dataManager)
                 .Inject(gameDataBase)
                 
                 .Init();
             
-            buildingConstructor.CreateBuildings();
             Debug.Log($"CreateWorld {world.IsAlive().ToString()}");
+            buildingConstructor.CreateBuildings();
+            world.NewEntity().Get<ResourceComponent>();
+        }
+
+        public void Tick()
+        {
+            systems?.Run();
+        }
+
+        public void Dispose()
+        {
+            if (systems != null)
+            {
+                systems.Destroy();
+                systems = null;
+                world.Destroy();
+                //world = null;
+            }
         }
     }
 }

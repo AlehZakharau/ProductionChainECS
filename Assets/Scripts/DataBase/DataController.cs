@@ -24,13 +24,13 @@ namespace UnityTemplateProjects
 
         private void Save()
         {
-            world.NewEntity().Get<Save>();
+            world.NewEntity().Get<SaveFlag>();
             Debug.Log("Save");
         }
 
         private void Load()
         {
-            world.NewEntity().Get<Load>();
+            world.NewEntity().Get<LoadFlag>();
             Debug.Log("Load");
         }
     }
