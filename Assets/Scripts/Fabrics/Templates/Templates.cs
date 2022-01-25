@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Ecs.Fabrics
+namespace Fabrics.Templates
 {
     public class Templates : MonoBehaviour
     {

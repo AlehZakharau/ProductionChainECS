@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using UnityTemplateProjects;
+﻿using Ecs;
+using Ecs.View.Impl;
+using UnityEngine;
 
-namespace Ecs.Fabrics.BuildingsConfigs
+namespace Fabrics.BuildingsConfigs
 {
     [CreateAssetMenu(fileName = "ExtractorConfig", menuName = "Configs/ExtractorConfig", order = 0)]
     public class ExtractorConfig : ScriptableObject

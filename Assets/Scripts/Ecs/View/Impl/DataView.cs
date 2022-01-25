@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace UnityTemplateProjects
+namespace Ecs.View.Impl
 {
     public class DataView : MonoBehaviour
     {

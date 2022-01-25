@@ -1,4 +1,4 @@
-﻿namespace UnityTemplateProjects
+﻿namespace DataBase
 {
     public interface IGameDataBase
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Ecs.Systems.Manufacture.Upgrade
+namespace Ecs.Systems.Upgrade
 {
     public struct UpgradeResourcesComponent
     {

@@ -1,6 +1,6 @@
 ﻿using Leopotam.Ecs;
 
-namespace UnityTemplateProjects.Components
+namespace DataBase.Components
 {
     public struct LoadFlag : IEcsIgnoreInFilter
     {

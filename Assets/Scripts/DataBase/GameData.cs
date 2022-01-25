@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace UnityTemplateProjects
+namespace DataBase
 {
     [Serializable]
     public class GameData : ISerializable

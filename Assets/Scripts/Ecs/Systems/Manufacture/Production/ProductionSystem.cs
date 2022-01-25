@@ -1,4 +1,5 @@
 ﻿using Ecs.Components;
+using Ecs.Systems.Manufacture.Production.Components;
 using Leopotam.Ecs;
 using UnityEngine;
 

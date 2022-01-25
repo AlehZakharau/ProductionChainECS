@@ -1,7 +1,6 @@
-﻿using Leopotam.Ecs;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Ecs.Fabrics.Fabrics
+namespace Fabrics.Fabrics
 {
     public interface IBuildingFactory
     {

@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using UnityEngine;
 
-namespace UnityTemplateProjects
+namespace DataBase
 {
     public interface IDataManager
     {

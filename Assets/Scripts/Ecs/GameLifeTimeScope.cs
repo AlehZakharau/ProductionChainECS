@@ -1,8 +1,10 @@
-﻿using Ecs.Fabrics;
-using Ecs.Fabrics.Fabrics;
+﻿using DataBase;
+using Ecs.View.Impl;
+using Fabrics;
+using Fabrics.Fabrics;
+using Fabrics.Templates;
 using Leopotam.Ecs;
 using UnityEngine;
-using UnityTemplateProjects;
 using VContainer;
 using VContainer.Unity;
 

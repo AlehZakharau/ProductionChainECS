@@ -1,4 +1,4 @@
-﻿namespace Ecs.Systems.Manufacture.Upgrade
+﻿namespace Ecs.Systems.Upgrade
 {
     public struct LevelComponent
     {

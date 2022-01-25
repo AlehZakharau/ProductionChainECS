@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-namespace UnityTemplateProjects
+namespace Camera
 {
-    [RequireComponent(typeof(Camera))]
+    [RequireComponent(typeof(UnityEngine.Camera))]
     public sealed class MouseClicker : MonoBehaviour
     {
-        private Camera camera;
+        private UnityEngine.Camera camera;
         
         private IClickable currentObject;
 
@@ -13,7 +13,7 @@ namespace UnityTemplateProjects
 
         private void Start()
         {
-            camera = GetComponent<Camera>();
+            camera = GetComponent<UnityEngine.Camera>();
             clicableMask = LayerMask.GetMask("Manufacture");
         }
 

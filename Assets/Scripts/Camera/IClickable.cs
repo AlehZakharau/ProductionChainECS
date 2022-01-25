@@ -1,4 +1,4 @@
-﻿namespace UnityTemplateProjects
+﻿namespace Camera
 {
     public interface IClickable
     {

@@ -1,9 +1,10 @@
-﻿using Leopotam.Ecs;
+﻿using DataBase.Components;
+using Ecs.View.Impl;
+using Leopotam.Ecs;
 using UnityEngine;
-using UnityTemplateProjects.Components;
 using VContainer.Unity;
 
-namespace UnityTemplateProjects
+namespace DataBase
 {
     public class DataController : IStartable
     {

@@ -1,8 +1,9 @@
 ﻿using Ecs.Components;
+using Ecs.Systems.Manufacture.Production.Components;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Ecs.Systems.Manufacture
+namespace Ecs.Systems.Manufacture.Production
 {
     public class ExtractorProductionSystem : IEcsRunSystem
     {

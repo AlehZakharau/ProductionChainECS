@@ -1,4 +1,6 @@
-﻿namespace Ecs.Fabrics
+﻿using Ecs;
+
+namespace Fabrics
 {
     public interface IBuildingTemplate
     {

@@ -1,6 +1,4 @@
-﻿using Ecs.View;
-
-namespace UnityTemplateProjects
+﻿namespace Ecs.View.Impl
 {
     public class ExtractorView : LinkView
     {

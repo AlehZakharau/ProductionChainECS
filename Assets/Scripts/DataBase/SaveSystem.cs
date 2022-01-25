@@ -1,9 +1,7 @@
-﻿using System.Linq;
+﻿using DataBase.Components;
 using Leopotam.Ecs;
-using UnityEngine;
-using UnityTemplateProjects.Components;
 
-namespace UnityTemplateProjects
+namespace DataBase
 {
     public class SaveSystem : IEcsRunSystem, IEcsInitSystem
     {

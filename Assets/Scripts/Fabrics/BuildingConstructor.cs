@@ -1,12 +1,17 @@
 ﻿using System.Collections.Generic;
+using Ecs;
 using Ecs.Components;
-using Ecs.Fabrics.Fabrics;
-using Ecs.Systems.Manufacture;
+using Ecs.Systems.Manufacture.Production.Components;
+using Ecs.Systems.Upgrade;
 using Ecs.View;
+using Fabrics.BuildingsConfigs;
+using Fabrics.Extension;
+using Fabrics.Fabrics;
+using Fabrics.Templates;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Ecs.Fabrics
+namespace Fabrics
 {
     public interface IBuildingConstructor
     {
@@ -16,12 +21,12 @@ namespace Ecs.Fabrics
     public class BuildingConstructor : IBuildingConstructor
     {
         private readonly EcsWorld world;
-        private readonly Templates templates;
+        private readonly Templates.Templates templates;
         private readonly IBuildingFactory buildingFabric;
 
         private List<IBuildingTemplate> buildingTemplates;
 
-        public BuildingConstructor(EcsWorld world, Templates templates, IBuildingFactory buildingFabric )
+        public BuildingConstructor(EcsWorld world, Templates.Templates templates, IBuildingFactory buildingFabric )
         {
             this.world = world;
             this.templates = templates;
@@ -38,18 +43,17 @@ namespace Ecs.Fabrics
                 {
                     case Building.Extractor:
                         var extractorTemplate = (IExtractorTemplate)template;
+                        
                         var instance = buildingFabric.CreateExtractor(
                             extractorTemplate.ExtractorConfig.extractorView.gameObject,
                             extractorTemplate.Transform.position);
                         var view = instance.GetComponent<ILinkable>();
-                        var extractorEntity = world.NewEntity();
+                        view.Transform.SetParent(extractorTemplate.Transform);
+
+                        var extractorEntity = world.CreateExtractor(extractorTemplate);
                         extractorEntity.Get<LinkComponent>().View = view;
-                        extractorEntity.Get<ExtractorFlag>();
-                        extractorEntity.Get<ProductionSpeedComponent>().ProductionSpeed =
-                            extractorTemplate.ExtractorConfig.productionSpeed;
-                        extractorEntity.Get<ResourceComponent>().Resource = 
-                            extractorTemplate.ExtractorConfig.resource;
                         view.Link(extractorEntity);
+                        
                         view.Transform.gameObject.name = "Extractor_" + index++;
                         break;
                     default:

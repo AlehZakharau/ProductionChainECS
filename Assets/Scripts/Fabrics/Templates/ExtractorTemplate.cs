@@ -1,9 +1,8 @@
-﻿using System;
-using Ecs.Fabrics.BuildingsConfigs;
+﻿using Ecs;
+using Fabrics.BuildingsConfigs;
 using UnityEngine;
-using UnityTemplateProjects;
 
-namespace Ecs.Fabrics
+namespace Fabrics.Templates
 {
     public interface IExtractorTemplate : IBuildingTemplate
     {
