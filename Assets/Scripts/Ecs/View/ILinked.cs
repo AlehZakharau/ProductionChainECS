@@ -9,5 +9,6 @@ namespace Ecs.View
         Transform Transform { get; }
         int UnityInstanceId { get; }
         void Link(EcsEntity entity);
+        void UpgradeBuilding(int level);
     }
 }

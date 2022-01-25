@@ -2,6 +2,7 @@
 using Ecs.Fabrics;
 using Ecs.Systems.Manufacture;
 using Ecs.Systems.Manufacture.Production;
+using Ecs.Systems.Manufacture.Upgrade;
 using Leopotam.Ecs;
 using UnityEngine;
 using UnityTemplateProjects;
@@ -30,6 +31,7 @@ namespace Ecs
             systems
                 .Add(new ProductionSystem())
                 .Add(new ExtractorProductionSystem())
+                .Add(new LevelSystem())
                 
                 .Inject(dataManager)
                 .Inject(gameDataBase)

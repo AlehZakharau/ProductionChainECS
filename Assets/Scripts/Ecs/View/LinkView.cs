@@ -5,6 +5,7 @@ namespace Ecs.View
 {
     public abstract class LinkView : MonoBehaviour, ILinkable
     {
+        protected int Level;
         protected EcsEntity Entity;
         public int Hash => transform.GetHashCode();
         public Transform Transform => transform;
@@ -13,7 +14,12 @@ namespace Ecs.View
         {
             Entity = entity;
         }
-        
+
+        public void UpgradeBuilding(int level)
+        {
+            Level = level;
+        }
+
         protected virtual void DestroyObject()
         {
 #if UNITY_EDITOR
