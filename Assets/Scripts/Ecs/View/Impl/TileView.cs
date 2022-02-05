@@ -9,15 +9,19 @@ namespace Ecs.View.Impl
 {
     public class TileView : LinkView
     {
+        [SerializeField] private Animator animator;
+        [SerializeField] private SpriteRenderer sprite;
+        private static readonly int Activate = Animator.StringToHash("Activate");
 
-        public void Return()
+        private void OnEnable()
         {
-            Entity.Get<ReturnPoolFlag>();
+            animator.SetTrigger(Activate);
         }
 
-        public void Request()
+        private void OnDisable()
         {
-            Entity.Get<RequestPoolFlag>();
+            Transform.rotation = Quaternion.identity;
+            sprite.color = new Color(1, 1, 1, 1);
         }
     }
 }
