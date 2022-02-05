@@ -4,6 +4,7 @@ using Ecs.Systems;
 using Ecs.Systems.Manufacture;
 using Ecs.Systems.Manufacture.Production;
 using Ecs.Systems.Manufacture.Production.Components;
+using Ecs.Systems.Pool;
 using Ecs.Systems.Pool.Components;
 using Ecs.Systems.Upgrade;
 using Fabrics;
@@ -37,7 +38,12 @@ namespace Ecs
             systems
                 .Add(new ProductionSystem())
                 .Add(new ExtractorProductionSystem())
+                
                 .Add(new UpgradeSystem())
+                
+                .Add(new AvailableCheckingCameraSystem())
+                .Add(new RequestTilePoolSystem())
+                .Add(new ReturnToPoolSystem())
                 
                 .Inject(dataManager)
                 .Inject(gameDataBase)
@@ -46,11 +52,13 @@ namespace Ecs
                 .OneFrame<NewLevelFlag>()
                 .OneFrame<CheckUpgradeOpportunityFlag>()
                 .OneFrame<ReturnPoolFlag>()
+                .OneFrame<RequestPoolFlag>()
                 
                 .Init();
             
             Debug.Log($"CreateWorld {world.IsAlive().ToString()}");
             buildingConstructor.CreateBuildings();
+            buildingConstructor.CreateCamera();
             tileConstructor.CreateTilesField();
         }
 

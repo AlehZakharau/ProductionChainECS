@@ -1,4 +1,5 @@
 ﻿using Ecs.Components;
+using Ecs.Systems.Pool.Components;
 using Ecs.View;
 using Ecs.View.Impl;
 using Fabrics.Templates;
@@ -32,7 +33,9 @@ namespace Fabrics
             {
                 var tileEntity = world.NewEntity();
                 tileEntity.Get<Tile>();
+                tileEntity.Get<Pooled>();
                 var view = tile.GetComponent<ILinkable>();
+                view.Link(tileEntity);
                 tileEntity.Get<LinkComponent>().View = view;
                 
                 view.Transform.gameObject.name = "Tile_" + index++;

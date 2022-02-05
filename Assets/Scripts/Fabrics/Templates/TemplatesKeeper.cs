@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Ecs.View;
 using Ecs.View.Impl;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Fabrics.Templates
     {
         [SerializeField] private List<ExtractorTemplate> extractorTemplate;
         [SerializeField] private TileView[] tileViews;
+        [SerializeField] private CameraView cameraView;
         public List<IBuildingTemplate> GetTemplates()
         {
             var templates = new List<IBuildingTemplate>();
@@ -23,6 +25,11 @@ namespace Fabrics.Templates
         public TileView[] GetTiles()
         {
             return tileViews;
+        }
+
+        public ILinkable GetCamera()
+        {
+            return cameraView.GetComponent<ILinkable>();
         }
     }
 }

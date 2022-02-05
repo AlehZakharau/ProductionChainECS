@@ -16,6 +16,7 @@ namespace Fabrics
     public interface IBuildingConstructor
     {
         public void CreateBuildings();
+        public void CreateCamera();
     }
 
     public class BuildingConstructor : IBuildingConstructor
@@ -61,6 +62,16 @@ namespace Fabrics
                         break;
                 }
             }
+        }
+
+        public void CreateCamera()
+        {
+            var cameraEntity = world.NewEntity();
+            var cameraView = templatesKeeper.GetCamera();
+            cameraEntity.Get<CameraComponent>();
+            cameraEntity.Get<LinkComponent>().View = cameraView;
+            cameraView.Link(cameraEntity);
+
         }
     }
 }
