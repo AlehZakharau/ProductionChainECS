@@ -5,7 +5,7 @@ namespace Ecs.Systems.Upgrade
     public class CheckUpgradeOpportunitySystem : IEcsRunSystem
     {
         private readonly EcsFilter<UpgradeResourcesComponent, 
-            CheckUpgradeOpportunityComponent, LevelComponent> buildings;
+            CheckUpgradeOpportunityFlag, LevelComponent> buildings;
         public void Run()
         {
             if(buildings.IsEmpty()) return;
@@ -17,10 +17,8 @@ namespace Ecs.Systems.Upgrade
 
                 if (CheckUpgradeResource(ref upgradeResource))
                 {
-                    entity.Get<NewLevelComponent>().NewLevel = buildings.Get3(i).Level + 1;
+                    entity.Get<NewLevelFlag>().NewLevel = buildings.Get3(i).Level + 1;
                 }
-                
-                entity.Del<CheckUpgradeOpportunityComponent>();
             }
         }
 

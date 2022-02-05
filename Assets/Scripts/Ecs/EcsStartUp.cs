@@ -1,8 +1,10 @@
 ﻿using System;
 using DataBase;
+using Ecs.Systems;
 using Ecs.Systems.Manufacture;
 using Ecs.Systems.Manufacture.Production;
 using Ecs.Systems.Manufacture.Production.Components;
+using Ecs.Systems.Pool.Components;
 using Ecs.Systems.Upgrade;
 using Fabrics;
 using Leopotam.Ecs;
@@ -15,12 +17,15 @@ namespace Ecs
     {
         private readonly EcsWorld world;
         private readonly IBuildingConstructor buildingConstructor;
+        private readonly ITileConstructor tileConstructor;
         private EcsSystems systems;
         
-        public EcsStartUp(EcsWorld world, IBuildingConstructor buildingConstructor)
+        public EcsStartUp(EcsWorld world, IBuildingConstructor buildingConstructor, 
+            ITileConstructor tileConstructor)
         {
             this.world = world;
             this.buildingConstructor = buildingConstructor;
+            this.tileConstructor = tileConstructor;
         }
         public void Start()
         {
@@ -37,11 +42,16 @@ namespace Ecs
                 .Inject(dataManager)
                 .Inject(gameDataBase)
                 
+                .OneFrame<ProduceFlag>()
+                .OneFrame<NewLevelFlag>()
+                .OneFrame<CheckUpgradeOpportunityFlag>()
+                .OneFrame<ReturnPoolFlag>()
+                
                 .Init();
             
             Debug.Log($"CreateWorld {world.IsAlive().ToString()}");
             buildingConstructor.CreateBuildings();
-            world.NewEntity().Get<ResourceComponent>();
+            tileConstructor.CreateTilesField();
         }
 
         public void Tick()

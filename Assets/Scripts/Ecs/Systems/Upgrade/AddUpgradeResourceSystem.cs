@@ -17,7 +17,7 @@ namespace Ecs.Systems.Upgrade
                 
                 var entity = buildings.GetEntity(i);
                 entity.Del<TransportComponent>();
-                entity.Get<CheckUpgradeOpportunityComponent>();
+                entity.Get<CheckUpgradeOpportunityFlag>();
             }
         }
     }

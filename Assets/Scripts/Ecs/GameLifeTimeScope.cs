@@ -13,7 +13,7 @@ namespace Ecs
     public class GameLifeTimeScope : LifetimeScope
     {
         [SerializeField] private DataView dataView;
-        [SerializeField] private Templates templates;
+        [SerializeField] private TemplatesKeeper templatesKeeper;
         [SerializeField] private BuildingFabric buildingFabric;
         protected override void Configure(IContainerBuilder builder)
         {
@@ -21,6 +21,7 @@ namespace Ecs
             
             builder.RegisterEntryPoint<DataController>();
             builder.Register<IBuildingConstructor, BuildingConstructor>(Lifetime.Singleton);
+            builder.Register<ITileConstructor, TileConstructor>(Lifetime.Singleton);
             
             RegisterComponents(builder);
             
@@ -42,7 +43,7 @@ namespace Ecs
         private void RegisterComponents(IContainerBuilder builder)
         {
             builder.RegisterComponent(dataView);
-            builder.RegisterComponent(templates);
+            builder.RegisterComponent(templatesKeeper);
             builder.RegisterInstance(buildingFabric).As<IBuildingFactory>();
 
         }

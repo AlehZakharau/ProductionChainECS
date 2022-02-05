@@ -1,6 +1,6 @@
 ﻿namespace Ecs.Systems.Upgrade
 {
-    public struct NewLevelComponent
+    public struct NewLevelFlag
     {
         public int NewLevel;
     }

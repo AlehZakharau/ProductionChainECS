@@ -16,7 +16,6 @@ namespace Ecs.Systems.Manufacture.Production
                 ref var resource = ref extractors.Get3(i);
                 resource.ResourceAmount++;
                 //Debug.Log($"Producing {entity.Get<LinkComponent>().View.Transform.gameObject.name}: {resource.ResourceAmount} ");
-                entity.Del<ProduceFlag>();
             }
         }
     }
