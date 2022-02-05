@@ -2,7 +2,7 @@
 
 namespace Ecs.Systems.Manufacture.Production.Components
 {
-    public struct ExtractorFlag : IEcsIgnoreInFilter
+    public struct Extractor : IEcsIgnoreInFilter
     {
         
     }
