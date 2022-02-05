@@ -21,22 +21,22 @@ namespace Fabrics
     public class BuildingConstructor : IBuildingConstructor
     {
         private readonly EcsWorld world;
-        private readonly Templates.Templates templates;
+        private readonly TemplatesKeeper templatesKeeper;
         private readonly IBuildingFactory buildingFabric;
 
         private List<IBuildingTemplate> buildingTemplates;
 
-        public BuildingConstructor(EcsWorld world, Templates.Templates templates, IBuildingFactory buildingFabric )
+        public BuildingConstructor(EcsWorld world, TemplatesKeeper templatesKeeper, IBuildingFactory buildingFabric )
         {
             this.world = world;
-            this.templates = templates;
+            this.templatesKeeper = templatesKeeper;
             this.buildingFabric = buildingFabric;
         }
 
         public void CreateBuildings()
         {
             var index =0;
-            buildingTemplates = templates.GetTemplates();
+            buildingTemplates = templatesKeeper.GetTemplates();
             foreach (var template in buildingTemplates)
             {
                 switch (template.Building)
@@ -44,7 +44,7 @@ namespace Fabrics
                     case Building.Extractor:
                         var extractorTemplate = (IExtractorTemplate)template;
                         
-                        var instance = buildingFabric.CreateExtractor(
+                        var instance = buildingFabric.CreateBuilding(
                             extractorTemplate.ExtractorConfig.extractorView.gameObject,
                             extractorTemplate.Transform.position);
                         var view = instance.GetComponent<ILinkable>();

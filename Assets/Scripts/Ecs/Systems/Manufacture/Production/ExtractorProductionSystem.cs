@@ -7,7 +7,7 @@ namespace Ecs.Systems.Manufacture.Production
 {
     public class ExtractorProductionSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<ExtractorFlag, ProduceFlag, ResourceComponent> extractors;
+        private readonly EcsFilter<Extractor, ProduceFlag, ResourceComponent> extractors;
         public void Run()
         {
             foreach (var i in extractors)
@@ -15,7 +15,7 @@ namespace Ecs.Systems.Manufacture.Production
                 var entity = extractors.GetEntity(i);
                 ref var resource = ref extractors.Get3(i);
                 resource.ResourceAmount++;
-                Debug.Log($"Producing {entity.Get<LinkComponent>().View.Transform.gameObject.name}: {resource.ResourceAmount} ");
+                //Debug.Log($"Producing {entity.Get<LinkComponent>().View.Transform.gameObject.name}: {resource.ResourceAmount} ");
                 entity.Del<ProduceFlag>();
             }
         }

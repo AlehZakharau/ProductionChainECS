@@ -10,7 +10,7 @@ namespace Fabrics.Extension
         public static EcsEntity CreateExtractor(this EcsWorld world, IExtractorTemplate extractorTemplate)
         {
             var extractorEntity = world.NewEntity();
-            extractorEntity.Get<ExtractorFlag>();
+            extractorEntity.Get<Extractor>();
             extractorEntity.Get<ProductionSpeedComponent>().ProductionSpeed =
                 extractorTemplate.ExtractorConfig.productionSpeed;
             extractorEntity.Get<ResourceComponent>().Resource = 
