@@ -2,7 +2,7 @@
 
 namespace Ecs.Systems.Upgrade
 {
-    public class CheckUpgradeOpportunitySystem : IEcsRunSystem
+    public sealed class CheckUpgradeOpportunitySystem : IEcsRunSystem
     {
         private readonly EcsFilter<UpgradeResourcesComponent, 
             CheckUpgradeOpportunityFlag, LevelComponent> buildings;
@@ -17,7 +17,7 @@ namespace Ecs.Systems.Upgrade
 
                 if (CheckUpgradeResource(ref upgradeResource))
                 {
-                    entity.Get<NewLevelFlag>().NewLevel = buildings.Get3(i).Level + 1;
+                    entity.Get<NewLevelComponent>().NewLevel = buildings.Get3(i).Level + 1;
                 }
             }
         }

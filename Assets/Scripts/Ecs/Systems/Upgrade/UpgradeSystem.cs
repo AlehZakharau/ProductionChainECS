@@ -3,9 +3,9 @@ using Leopotam.Ecs;
 
 namespace Ecs.Systems.Upgrade
 {
-    public class UpgradeSystem : IEcsRunSystem
+    public sealed class UpgradeSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<NewLevelFlag, LinkComponent> buildings;
+        private readonly EcsFilter<NewLevelComponent, LinkComponent> buildings;
         
         public void Run()
         {

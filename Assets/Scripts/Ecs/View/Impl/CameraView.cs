@@ -1,6 +1,6 @@
 ﻿namespace Ecs.View.Impl
 {
-    public class CameraView : LinkView
+    public sealed class CameraView : LinkView
     {
         
     }

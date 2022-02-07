@@ -19,7 +19,7 @@ namespace Fabrics
         public void CreateCamera();
     }
 
-    public class BuildingConstructor : IBuildingConstructor
+    public sealed class BuildingConstructor : IBuildingConstructor
     {
         private readonly EcsWorld world;
         private readonly TemplatesKeeper templatesKeeper;

@@ -13,7 +13,7 @@ namespace Fabrics
         public void CreateTilesField();
     }
     
-    public class TileConstructor : ITileConstructor
+    public sealed class TileConstructor : ITileConstructor
     {
         private readonly EcsWorld world;
         private readonly TemplatesKeeper templates;

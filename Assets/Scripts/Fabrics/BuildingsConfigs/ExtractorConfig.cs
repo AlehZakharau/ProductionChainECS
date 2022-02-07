@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Fabrics.BuildingsConfigs
 {
     [CreateAssetMenu(fileName = "ExtractorConfig", menuName = "Configs/ExtractorConfig", order = 0)]
-    public class ExtractorConfig : ScriptableObject
+    public sealed class ExtractorConfig : ScriptableObject
     {
         [Header("Prefab")] public ExtractorView extractorView;
         [Header("Building Data")]

@@ -2,7 +2,7 @@
 
 namespace Ecs.Systems.Upgrade
 {
-    public class AddUpgradeResourceSystem : IEcsRunSystem
+    public sealed class AddUpgradeResourceSystem : IEcsRunSystem
     {
         private readonly EcsFilter<TransportComponent, UpgradeResourcesComponent> buildings;
         public void Run()

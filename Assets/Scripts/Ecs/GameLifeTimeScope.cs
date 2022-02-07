@@ -10,7 +10,7 @@ using VContainer.Unity;
 
 namespace Ecs
 {
-    public class GameLifeTimeScope : LifetimeScope
+    public sealed class GameLifeTimeScope : LifetimeScope
     {
         [SerializeField] private DataView dataView;
         [SerializeField] private TemplatesKeeper templatesKeeper;

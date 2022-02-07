@@ -17,7 +17,7 @@ namespace Fabrics.Extension
                 extractorTemplate.ExtractorConfig.resource;
             extractorEntity.Get<LevelComponent>().Level = 
                 extractorTemplate.ExtractorConfig.startLevel;
-            extractorEntity.Get<NewLevelFlag>().NewLevel =
+            extractorEntity.Get<NewLevelComponent>().NewLevel =
                 extractorTemplate.ExtractorConfig.startLevel;
 
             return extractorEntity;

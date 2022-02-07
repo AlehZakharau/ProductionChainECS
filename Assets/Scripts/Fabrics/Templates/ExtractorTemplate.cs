@@ -9,7 +9,7 @@ namespace Fabrics.Templates
         public Transform Transform { get; }
         public ExtractorConfig ExtractorConfig { get;  }
     }
-    public class ExtractorTemplate : MonoBehaviour, IExtractorTemplate
+    public sealed class ExtractorTemplate : MonoBehaviour, IExtractorTemplate
     {
         [SerializeField]private ExtractorConfig extractorConfig;
 

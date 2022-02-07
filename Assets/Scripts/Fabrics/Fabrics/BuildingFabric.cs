@@ -7,7 +7,7 @@ namespace Fabrics.Fabrics
         public GameObject CreateBuilding(GameObject prefab, Vector3 startPosition);
     }
     [CreateAssetMenu(fileName = "BuildingFabric", menuName = "Fabrics/BuildingFabric", order = 0)]
-    public class BuildingFabric : ScriptableObject, IBuildingFactory
+    public sealed class BuildingFabric : ScriptableObject, IBuildingFactory
     {
         public GameObject CreateBuilding(GameObject prefab, Vector3 startPosition)
         {

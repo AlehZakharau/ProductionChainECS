@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Fabrics.Templates
 {
-    public class TemplatesKeeper : MonoBehaviour
+    public sealed class TemplatesKeeper : MonoBehaviour
     {
         [SerializeField] private List<ExtractorTemplate> extractorTemplate;
         [SerializeField] private TileView[] tileViews;

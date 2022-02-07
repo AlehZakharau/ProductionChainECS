@@ -1,13 +1,8 @@
-﻿
-using System;
-using Ecs.Components;
-using Ecs.Systems.Pool.Components;
-using Leopotam.Ecs;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Ecs.View.Impl
 {
-    public class TileView : LinkView
+    public sealed class TileView : LinkView
     {
         [SerializeField] private Animator animator;
         [SerializeField] private SpriteRenderer sprite;

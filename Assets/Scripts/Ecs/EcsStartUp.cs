@@ -1,5 +1,6 @@
 ﻿using System;
 using DataBase;
+using Ecs.Components;
 using Ecs.Systems;
 using Ecs.Systems.Manufacture;
 using Ecs.Systems.Manufacture.Production;
@@ -14,7 +15,7 @@ using VContainer.Unity;
 
 namespace Ecs
 {
-    public class EcsStartUp : IStartable, ITickable, IDisposable
+    public sealed class EcsStartUp : IStartable, ITickable, IDisposable
     {
         private readonly EcsWorld world;
         private readonly IBuildingConstructor buildingConstructor;
@@ -49,10 +50,11 @@ namespace Ecs
                 .Inject(gameDataBase)
                 
                 .OneFrame<ProduceFlag>()
-                .OneFrame<NewLevelFlag>()
+                .OneFrame<NewLevelComponent>()
                 .OneFrame<CheckUpgradeOpportunityFlag>()
                 .OneFrame<ReturnPoolFlag>()
                 .OneFrame<RequestPoolFlag>()
+                .OneFrame<ClickFlag>()
                 
                 .Init();
             
