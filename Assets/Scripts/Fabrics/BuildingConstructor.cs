@@ -2,8 +2,10 @@
 using Ecs;
 using Ecs.Components;
 using Ecs.Systems.Manufacture.Production.Components;
+using Ecs.Systems.Transportation.Components;
 using Ecs.Systems.Upgrade;
 using Ecs.View;
+using Ecs.View.Impl;
 using Fabrics.BuildingsConfigs;
 using Fabrics.Extension;
 using Fabrics.Fabrics;
@@ -17,6 +19,7 @@ namespace Fabrics
     {
         public void CreateBuildings();
         public void CreateCamera();
+        public BridgeView CreateBridge(EcsEntity bridge);
     }
 
     public sealed class BuildingConstructor : IBuildingConstructor
@@ -26,6 +29,8 @@ namespace Fabrics
         private readonly IBuildingFactory buildingFabric;
 
         private List<IBuildingTemplate> buildingTemplates;
+
+        private int bridgeCounter;
 
         public BuildingConstructor(EcsWorld world, TemplatesKeeper templatesKeeper, IBuildingFactory buildingFabric )
         {
@@ -72,6 +77,21 @@ namespace Fabrics
             cameraEntity.Get<LinkComponent>().View = cameraView;
             cameraView.Link(cameraEntity);
 
+        }
+
+        public BridgeView CreateBridge(EcsEntity bridge)
+        {
+            var config = templatesKeeper.GetBridge();
+            var instance = buildingFabric.CreateBuilding(config.bridgeView.gameObject, Vector3.zero);
+            var view = instance.GetComponent<ILinkable>();
+            view.Transform.SetParent(config.Parent);
+            view.Link(bridge);
+
+            bridge.Get<LinkComponent>().View = view;
+            bridge.Get<TransportationSpeedComponent>().Speed = config.transportSpeed;
+
+            view.Transform.gameObject.name = "Bridge_" + bridgeCounter++;
+            return view as BridgeView;
         }
     }
 }

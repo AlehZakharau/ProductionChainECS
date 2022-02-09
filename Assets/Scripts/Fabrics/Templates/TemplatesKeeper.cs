@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Ecs.View;
 using Ecs.View.Impl;
+using Fabrics.BuildingsConfigs;
 using UnityEngine;
 
 namespace Fabrics.Templates
@@ -10,6 +11,8 @@ namespace Fabrics.Templates
         [SerializeField] private List<ExtractorTemplate> extractorTemplate;
         [SerializeField] private TileView[] tileViews;
         [SerializeField] private CameraView cameraView;
+        [SerializeField] private BridgeConfig bridgeConfig;
+        [SerializeField] private Transform bridgeParent;
         public List<IBuildingTemplate> GetTemplates()
         {
             var templates = new List<IBuildingTemplate>();
@@ -30,6 +33,12 @@ namespace Fabrics.Templates
         public ILinkable GetCamera()
         {
             return cameraView.GetComponent<ILinkable>();
+        }
+
+        public BridgeConfig GetBridge()
+        {
+            bridgeConfig.Parent = bridgeParent;
+            return bridgeConfig;
         }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using Camera;
 using Ecs.Components;
 using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Ecs.View.Impl
 {
     public sealed class ExtractorView : LinkView, IClickable
     {
+        [SerializeField] private SpriteRenderer tileRender;
         public void Click()
         {
             Entity.Get<ClickFlag>();
@@ -13,12 +15,12 @@ namespace Ecs.View.Impl
 
         public void Select()
         {
-            throw new System.NotImplementedException();
+            tileRender.color = new Color(0.61f, 1f, 0.96f);
         }
 
         public void UnSelect()
         {
-            throw new System.NotImplementedException();
+            tileRender.color = Color.white;
         }
     }
 }

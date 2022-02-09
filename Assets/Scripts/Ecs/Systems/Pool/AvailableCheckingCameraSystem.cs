@@ -21,7 +21,7 @@ namespace Ecs.Systems.Pool
                 if (!CheckDistance(view.Transform.position, cameraView.Transform.position))
                 {
                     available.GetEntity(i).Get<RequestPoolFlag>();
-                    Debug.Log($"Request");
+                    //Debug.Log($"Request");
                 }
             }
 
@@ -34,7 +34,7 @@ namespace Ecs.Systems.Pool
                 {
                     notAvailable.GetEntity(i).Get<ReturnPoolFlag>();
                     
-                    Debug.Log($"Return {notAvailable.GetEntity(i).Has<LinkComponent>()}");
+                    //Debug.Log($"Return {notAvailable.GetEntity(i).Has<LinkComponent>()}");
                 }
             }
         }

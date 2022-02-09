@@ -13,5 +13,8 @@ namespace Fabrics.BuildingsConfigs
         [Header("Extractor Data")]
         public Resource resource;
         public float productionSpeed;
+        [Header("Upgrade Demand Resource")] 
+        public Resource[] resources;
+        public int[] amountResource;
     }
 }

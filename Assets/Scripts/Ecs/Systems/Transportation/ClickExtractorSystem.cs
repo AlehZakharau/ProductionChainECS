@@ -15,11 +15,6 @@ namespace Ecs.Systems.Transportation
             {
                 var entity = manufactures.GetEntity(i);
                 world.SetTransportMember(entity);
-                //if sender == null
-                // send resource componenr
-
-                //else if reciver == null
-                //send upgrade component
 
                 //if false
                 //cancel flag

@@ -7,6 +7,8 @@ using Ecs.Systems.Manufacture.Production;
 using Ecs.Systems.Manufacture.Production.Components;
 using Ecs.Systems.Pool;
 using Ecs.Systems.Pool.Components;
+using Ecs.Systems.Transportation;
+using Ecs.Systems.Transportation.Components;
 using Ecs.Systems.Upgrade;
 using Fabrics;
 using Leopotam.Ecs;
@@ -42,12 +44,17 @@ namespace Ecs
                 
                 .Add(new UpgradeSystem())
                 
+                .Add(new ClickExtractorSystem())
+                .Add(new BridgeInstantiateSystem())
+                .Add(new BridgeSystem())
+                
                 .Add(new AvailableCheckingCameraSystem())
                 .Add(new RequestTilePoolSystem())
                 .Add(new ReturnToPoolSystem())
                 
                 .Inject(dataManager)
                 .Inject(gameDataBase)
+                .Inject(buildingConstructor)
                 
                 .OneFrame<ProduceFlag>()
                 .OneFrame<NewLevelComponent>()
@@ -55,6 +62,7 @@ namespace Ecs
                 .OneFrame<ReturnPoolFlag>()
                 .OneFrame<RequestPoolFlag>()
                 .OneFrame<ClickFlag>()
+                .OneFrame<NewBridgeFlag>()
                 
                 .Init();
             

@@ -1,4 +1,6 @@
 ﻿using Ecs.Systems.Manufacture.Production.Components;
+using Ecs.Systems.Transportation;
+using Ecs.Systems.Transportation.Components;
 using Ecs.Systems.Upgrade;
 using Leopotam.Ecs;
 
@@ -22,6 +24,11 @@ namespace Ecs.Extension
                 if (CheckMatchingResources(sender, receiver))
                 {
                     // Create transport
+                    var transportEntity = world.NewEntity();
+                    transportEntity.Get<Bridge>();
+                    transportEntity.Get<NewBridgeFlag>();
+                    var transport = new TransportBridgeComponent { Sender = sender, Receiver = receiver };
+                    transportEntity.Get<TransportBridgeComponent>() = transport;
                 }
                 else
                 {
@@ -29,10 +36,7 @@ namespace Ecs.Extension
                 }
             }
         }
-
-
-
-
+        
         private static bool CheckMatchingResources(EcsEntity sender, EcsEntity receiver)
         {
             var resource = sender.Get<ResourceComponent>().Resource;
