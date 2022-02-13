@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Ecs;
+using Ecs.Systems;
 using Ecs.Systems.Manufacture.Production.Components;
 using Ecs.Systems.Upgrade;
 using Fabrics.Templates;
@@ -9,6 +10,8 @@ namespace Fabrics.Extension
 {
     public static class BuildingExtension
     {
+        private static int index;
+        
         public static EcsEntity CreateExtractor(this EcsWorld world, IExtractorTemplate extractorTemplate)
         {
             var config = extractorTemplate.ExtractorConfig;

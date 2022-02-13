@@ -737,6 +737,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83542097581daad499f0cb50c112f055, type: 3}
+--- !u!1 &39274890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 39274892}
+  - component: {fileID: 39274891}
+  m_Layer: 6
+  m_Name: extractor_4 Stone
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &39274891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39274890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4ba734ad6644d5a8a9e2711e9cb568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extractorConfig: {fileID: 11400000, guid: f018050f5ae78bd4e9a946e576d80f3b, type: 2}
+--- !u!4 &39274892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39274890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.04, y: 4.79, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &51731666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 554230681924645162, guid: 83542097581daad499f0cb50c112f055, type: 3}
@@ -3114,7 +3158,7 @@ GameObject:
   - component: {fileID: 192096158}
   - component: {fileID: 192096157}
   m_Layer: 6
-  m_Name: extractor_2
+  m_Name: extractor_2 Wood
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -6265,7 +6309,7 @@ Transform:
   - {fileID: 655047681}
   - {fileID: 62883165}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &415404986
 PrefabInstance:
@@ -12154,7 +12198,7 @@ Transform:
   - {fileID: 572732207}
   - {fileID: 1939942482}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &734092462 stripped
 Transform:
@@ -18782,6 +18826,8 @@ MonoBehaviour:
   extractorTemplate:
   - {fileID: 1850265561}
   - {fileID: 192096157}
+  - {fileID: 2008257506}
+  - {fileID: 39274891}
   tileViews:
   - {fileID: 1903663416}
   - {fileID: 1858842922}
@@ -22569,7 +22615,7 @@ Transform:
   - {fileID: 882452392}
   - {fileID: 842503468}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1323524216
 PrefabInstance:
@@ -29524,7 +29570,7 @@ GameObject:
   - component: {fileID: 1850265562}
   - component: {fileID: 1850265561}
   m_Layer: 6
-  m_Name: extractor_1
+  m_Name: extractor_1 Wood
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -31985,7 +32031,7 @@ Transform:
   - {fileID: 441818628}
   - {fileID: 807214457}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1993173736 stripped
 Transform:
@@ -32029,6 +32075,50 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 554230681924645157, guid: 83542097581daad499f0cb50c112f055, type: 3}
   m_PrefabInstance: {fileID: 268213255}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2008257505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2008257507}
+  - component: {fileID: 2008257506}
+  m_Layer: 6
+  m_Name: extractor_3 Stone
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2008257506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008257505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4ba734ad6644d5a8a9e2711e9cb568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extractorConfig: {fileID: 11400000, guid: f018050f5ae78bd4e9a946e576d80f3b, type: 2}
+--- !u!4 &2008257507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008257505}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.67, y: 4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2009016272 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 554230681924645162, guid: 83542097581daad499f0cb50c112f055, type: 3}

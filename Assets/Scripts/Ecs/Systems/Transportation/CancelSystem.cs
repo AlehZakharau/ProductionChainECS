@@ -1,4 +1,5 @@
-﻿using Ecs.Components;
+﻿using CameraService;
+using Ecs.Components;
 using Ecs.Systems.Components;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -13,16 +14,21 @@ namespace Ecs.Systems.Transportation
             foreach (var i in cancel)
             {
                 var entity = cancel.GetEntity(i);
-                var isCanceled = cancel.Get1(i).IsCanceled;
-                if (isCanceled)
+                var massage = cancel.Get1(i).Message;
+                switch (massage)
                 {
-                    Debug.Log($"You cancel selection");
+                    case ECancelMessage.Cancel:
+                        Debug.Log($"You cancel selection");
+                        break;
+                    case ECancelMessage.Wrong:
+                        Debug.Log($"Cancel, can't transfer this resource");
+                        break;
+                    case ECancelMessage.Busy:
+                        Debug.Log($"Cancel, Sender Busy");
+                        break;
                 }
-                else
-                {
-                    Debug.Log($"Cancel, can't transfer this resource");
-                }
-                //Var show wrong resoult
+                var clickable = (IClickable)cancel.Get2(i).View;
+                clickable.UnSelect();
             }
         }
     }

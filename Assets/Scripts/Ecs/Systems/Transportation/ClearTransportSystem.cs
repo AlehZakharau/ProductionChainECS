@@ -1,4 +1,5 @@
 ﻿using Ecs.Extension;
+using Ecs.Systems.Components;
 using Ecs.Systems.Transportation.Components;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Ecs.Systems.Transportation
         {
             foreach (var i in clear)
             {
-                world.ClearTransportService(true);
+                world.ClearTransportService(ECancelMessage.Cancel);
                 Debug.Log($"Call ClearTransportService");
             }
         }

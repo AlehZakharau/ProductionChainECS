@@ -1,7 +1,9 @@
 ﻿using Ecs.Components;
 using Ecs.Extension;
 using Ecs.Systems.Manufacture.Production.Components;
+using Ecs.Systems.Transportation.Components;
 using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Ecs.Systems.Transportation
 {
@@ -15,7 +17,7 @@ namespace Ecs.Systems.Transportation
             {
                 var entity = manufactures.GetEntity(i);
                 world.SetTransportMember(entity);
-
+                Debug.Log($"Call Transport Service");
                 //if false
                 //cancel flag
             }

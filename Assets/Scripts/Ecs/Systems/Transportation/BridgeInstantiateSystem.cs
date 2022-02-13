@@ -1,4 +1,5 @@
-﻿using Ecs.Components;
+﻿using CameraService;
+using Ecs.Components;
 using Ecs.Systems.Transportation.Components;
 using Fabrics;
 using Leopotam.Ecs;
@@ -16,7 +17,10 @@ namespace Ecs.Systems.Transportation
                 var view = buildingConstructor.CreateBridge(bridge.GetEntity(i));
                 ref var transport = ref bridge.Get3(i);
                 var senderPosition = transport.Sender.Get<LinkComponent>().View.Transform.position;
-                var receiverPosition = transport.Receiver.Get<LinkComponent>().View.Transform.position;
+                var receiverView = transport.Receiver.Get<LinkComponent>().View;
+                var receiverPosition = receiverView.Transform.position;
+                var clickable = receiverView as IClickable;
+                clickable?.UnSelect();
                 view.SetConnection(senderPosition, receiverPosition);
             }
         }
