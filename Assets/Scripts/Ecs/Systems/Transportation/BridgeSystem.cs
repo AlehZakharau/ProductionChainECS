@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Ecs.Systems.Transportation
 {
-    public class BridgeSystem : IEcsRunSystem
+    public sealed class BridgeSystem : IEcsRunSystem
     {
         private readonly EcsFilter<TransportBridgeComponent, TransportationSpeedComponent> bridges;
         public void Run()

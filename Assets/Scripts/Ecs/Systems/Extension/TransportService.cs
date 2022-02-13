@@ -1,8 +1,10 @@
-﻿using Ecs.Systems.Manufacture.Production.Components;
+﻿using Ecs.Systems.Components;
+using Ecs.Systems.Manufacture.Production.Components;
 using Ecs.Systems.Transportation;
 using Ecs.Systems.Transportation.Components;
 using Ecs.Systems.Upgrade;
 using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Ecs.Extension
 {
@@ -29,19 +31,31 @@ namespace Ecs.Extension
                     transportEntity.Get<NewBridgeFlag>();
                     var transport = new TransportBridgeComponent { Sender = sender, Receiver = receiver };
                     transportEntity.Get<TransportBridgeComponent>() = transport;
+                    ClearTransportService(world, true);
                 }
                 else
                 {
-                    //Cancel
+                    ClearTransportService(world, false);
                 }
             }
         }
-        
-        private static bool CheckMatchingResources(EcsEntity sender, EcsEntity receiver)
+
+        public static void ClearTransportService(this EcsWorld world, bool isCanceled)
         {
-            var resource = sender.Get<ResourceComponent>().Resource;
+            if(sender.IsNull()) return;
+            Debug.Log($"Add Cancel Flag");
+            sender.Get<CancelComponent>().IsCanceled = isCanceled;
+            sender = EcsEntity.Null;
+            if(receiver.IsNull()) return;
+            receiver.Get<CancelComponent>().IsCanceled = isCanceled;
+            receiver = EcsEntity.Null;
+        }
+        
+        private static bool CheckMatchingResources(EcsEntity checkedSender, EcsEntity checkedReceiver)
+        {
+            var resource = checkedSender.Get<ResourceComponent>().Resource;
             //if(receiver.Has<>()) if refinery => add first to upgrade, then to production demand
-            var demands = receiver.Get<UpgradeResourcesComponent>().DemandUpgradeResources;
+            var demands = checkedReceiver.Get<UpgradeResourcesComponent>().DemandUpgradeResources;
 
             foreach (var demand in demands.Keys)
             {

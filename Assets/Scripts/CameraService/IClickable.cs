@@ -1,4 +1,4 @@
-﻿namespace Camera
+﻿namespace CameraService
 {
     public interface IClickable
     {

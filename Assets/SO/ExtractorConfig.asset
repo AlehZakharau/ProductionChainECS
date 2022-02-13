@@ -16,5 +16,5 @@ MonoBehaviour:
   startLevel: 1
   resource: 0
   productionSpeed: 1
-  resources: 01000000
+  resources: 00000000
   amountResource: 05000000

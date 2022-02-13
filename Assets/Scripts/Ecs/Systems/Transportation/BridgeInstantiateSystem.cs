@@ -5,7 +5,7 @@ using Leopotam.Ecs;
 
 namespace Ecs.Systems.Transportation
 {
-    public class BridgeInstantiateSystem : IEcsRunSystem
+    public sealed class BridgeInstantiateSystem : IEcsRunSystem
     {
         private readonly IBuildingConstructor buildingConstructor;
         private readonly EcsFilter<Bridge, NewBridgeFlag, TransportBridgeComponent> bridge;

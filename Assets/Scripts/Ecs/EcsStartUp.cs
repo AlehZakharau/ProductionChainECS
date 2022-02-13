@@ -2,6 +2,7 @@
 using DataBase;
 using Ecs.Components;
 using Ecs.Systems;
+using Ecs.Systems.Components;
 using Ecs.Systems.Manufacture;
 using Ecs.Systems.Manufacture.Production;
 using Ecs.Systems.Manufacture.Production.Components;
@@ -47,6 +48,8 @@ namespace Ecs
                 .Add(new ClickExtractorSystem())
                 .Add(new BridgeInstantiateSystem())
                 .Add(new BridgeSystem())
+                .Add(new ClearTransportSystem())
+                .Add(new CancelSystem())
                 
                 .Add(new AvailableCheckingCameraSystem())
                 .Add(new RequestTilePoolSystem())
@@ -62,6 +65,8 @@ namespace Ecs
                 .OneFrame<ReturnPoolFlag>()
                 .OneFrame<RequestPoolFlag>()
                 .OneFrame<ClickFlag>()
+                .OneFrame<CancelComponent>()
+                .OneFrame<ClearTransportFlag>()
                 .OneFrame<NewBridgeFlag>()
                 
                 .Init();

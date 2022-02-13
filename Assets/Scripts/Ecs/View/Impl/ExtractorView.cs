@@ -1,4 +1,4 @@
-﻿using Camera;
+﻿using CameraService;
 using Ecs.Components;
 using Leopotam.Ecs;
 using UnityEngine;

@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 using UnityEngine;
 
-namespace Camera
+namespace CameraService
 {
     public class SimpleCameraController : MonoBehaviour
     {
