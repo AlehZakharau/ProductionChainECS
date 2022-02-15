@@ -4,6 +4,7 @@ using Fabrics;
 using Fabrics.Fabrics;
 using Fabrics.Templates;
 using Leopotam.Ecs;
+using PlayerInput;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -15,6 +16,7 @@ namespace Ecs
         [SerializeField] private DataView dataView;
         [SerializeField] private TemplatesKeeper templatesKeeper;
         [SerializeField] private BuildingFabric buildingFabric;
+
         protected override void Configure(IContainerBuilder builder)
         {
             RegisterWorld(builder);
@@ -22,6 +24,7 @@ namespace Ecs
             builder.RegisterEntryPoint<DataController>();
             builder.Register<IBuildingConstructor, BuildingConstructor>(Lifetime.Singleton);
             builder.Register<ITileConstructor, TileConstructor>(Lifetime.Singleton);
+            builder.Register<Controls>(Lifetime.Singleton);
             
             RegisterComponents(builder);
             

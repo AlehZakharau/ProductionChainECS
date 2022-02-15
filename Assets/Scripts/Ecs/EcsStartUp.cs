@@ -1,6 +1,7 @@
 ﻿using System;
 using DataBase;
 using Ecs.Components;
+using Ecs.PlayerInput;
 using Ecs.Systems;
 using Ecs.Systems.Components;
 using Ecs.Systems.Manufacture;
@@ -13,6 +14,7 @@ using Ecs.Systems.Transportation.Components;
 using Ecs.Systems.Upgrade;
 using Fabrics;
 using Leopotam.Ecs;
+using PlayerInput;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -23,14 +25,16 @@ namespace Ecs
         private readonly EcsWorld world;
         private readonly IBuildingConstructor buildingConstructor;
         private readonly ITileConstructor tileConstructor;
+        private readonly Controls controls;
         private EcsSystems systems;
         
         public EcsStartUp(EcsWorld world, IBuildingConstructor buildingConstructor, 
-            ITileConstructor tileConstructor)
+            ITileConstructor tileConstructor, Controls controls)
         {
             this.world = world;
             this.buildingConstructor = buildingConstructor;
             this.tileConstructor = tileConstructor;
+            this.controls = controls;
         }
         public void Start()
         {
@@ -40,6 +44,8 @@ namespace Ecs
             systems = new EcsSystems(world);
             
             systems
+                .Add(new PlayerInputSystem())
+                
                 .Add(new ProductionSystem())
                 .Add(new ExtractorProductionSystem())
                 
@@ -58,6 +64,7 @@ namespace Ecs
                 .Inject(dataManager)
                 .Inject(gameDataBase)
                 .Inject(buildingConstructor)
+                .Inject(controls)
                 
                 .OneFrame<ProduceFlag>()
                 .OneFrame<NewLevelComponent>()
