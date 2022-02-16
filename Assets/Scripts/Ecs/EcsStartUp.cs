@@ -7,6 +7,8 @@ using Ecs.Systems.Components;
 using Ecs.Systems.Manufacture;
 using Ecs.Systems.Manufacture.Production;
 using Ecs.Systems.Manufacture.Production.Components;
+using Ecs.Systems.PlayerInput;
+using Ecs.Systems.PlayerInput.Components;
 using Ecs.Systems.Pool;
 using Ecs.Systems.Pool.Components;
 using Ecs.Systems.Transportation;
@@ -45,6 +47,7 @@ namespace Ecs
             
             systems
                 .Add(new PlayerInputSystem())
+                .Add(new CameraMovementSystem())
                 
                 .Add(new ProductionSystem())
                 .Add(new ExtractorProductionSystem())
@@ -75,6 +78,8 @@ namespace Ecs
                 .OneFrame<CancelComponent>()
                 .OneFrame<ClearTransportFlag>()
                 .OneFrame<NewBridgeFlag>()
+                .OneFrame<CameraMovementEnableFlag>()
+                .OneFrame<CameraMovementDisableFlag>()
                 
                 .Init();
             

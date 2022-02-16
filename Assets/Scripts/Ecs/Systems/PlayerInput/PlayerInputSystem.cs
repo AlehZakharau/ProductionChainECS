@@ -1,15 +1,18 @@
 ﻿using CameraService;
 using Ecs.Components;
+using Ecs.Systems.PlayerInput.Components;
 using Ecs.View.Impl;
 using Leopotam.Ecs;
 using PlayerInput;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Ecs.PlayerInput
 {
     public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem
     {
+        private readonly EcsWorld world = null;
         private readonly Controls controls = null;
         private readonly EcsFilter<CameraComponent, LinkComponent> camera = default;
 
@@ -19,6 +22,7 @@ namespace Ecs.PlayerInput
         {
             controls.Enable();
             clickableMask = LayerMask.GetMask("Manufacture");
+            controls.Clicks.LeftClick.canceled += LeftClickOnCanceled;
         }
 
         public void Run()
@@ -31,9 +35,10 @@ namespace Ecs.PlayerInput
             {
                 currentClickable?.UnSelect();
                 var ray = cameraView.camera.ScreenPointToRay(cursorPosition);
-                if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, clickableMask))
+                world.NewEntity().Get<CameraMovementEnableFlag>();
+                if (Physics.Raycast(ray, out var hit, Mathf.Infinity, clickableMask))
                 {
-                    if (hit.collider.TryGetComponent(out IClickable clickable))
+                    if(hit.collider.TryGetComponent(out IClickable clickable))
                     {
                         currentClickable = clickable;
                         currentClickable.Select();
@@ -41,13 +46,17 @@ namespace Ecs.PlayerInput
                     }
                 }
             }
-
             if (rightClick)
             {
                 currentClickable?.UnSelect();
                 currentClickable = null;
                 cameraView.CancelSelection();
             }
+        }
+
+        private void LeftClickOnCanceled(InputAction.CallbackContext obj)
+        {
+            world.NewEntity().Get<CameraMovementDisableFlag>();
         }
     }
 }
