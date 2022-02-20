@@ -6,6 +6,7 @@ namespace Ecs.View.Impl
 {
     public sealed class CameraView : LinkView
     {
+        public float smoothness = 2f;
         public Camera camera;
         
 
