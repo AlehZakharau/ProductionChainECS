@@ -15,6 +15,8 @@ namespace Ecs
     {
         [SerializeField] private DataView dataView;
         [SerializeField] private TemplatesKeeper templatesKeeper;
+        [SerializeField] private PrefabTemplate prefabTemplate;
+        [SerializeField] private MonoTemplate monoTemplate;
         [SerializeField] private BuildingFabric buildingFabric;
 
         protected override void Configure(IContainerBuilder builder)
@@ -24,6 +26,7 @@ namespace Ecs
             builder.RegisterEntryPoint<DataController>();
             builder.Register<IBuildingConstructor, BuildingConstructor>(Lifetime.Singleton);
             builder.Register<ITileConstructor, TileConstructor>(Lifetime.Singleton);
+            builder.Register<IMonoConstructor, MonoConstructor>(Lifetime.Singleton);
             builder.Register<Controls>(Lifetime.Singleton);
             
             RegisterComponents(builder);
@@ -47,6 +50,8 @@ namespace Ecs
         {
             builder.RegisterComponent(dataView);
             builder.RegisterComponent(templatesKeeper);
+            builder.RegisterComponent(prefabTemplate);
+            builder.RegisterComponent(monoTemplate);
             builder.RegisterInstance(buildingFabric).As<IBuildingFactory>();
 
         }

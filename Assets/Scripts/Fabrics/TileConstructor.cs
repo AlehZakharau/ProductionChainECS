@@ -1,5 +1,6 @@
 ﻿using Ecs.Components;
 using Ecs.Systems.Pool.Components;
+using Ecs.Tower.Components;
 using Ecs.View;
 using Ecs.View.Impl;
 using Fabrics.Templates;
@@ -34,10 +35,15 @@ namespace Fabrics
                 var tileEntity = world.NewEntity();
                 tileEntity.Get<Tile>();
                 tileEntity.Get<Pooled>();
-                var view = tile.GetComponent<ILinkable>();
+                var view = (TileView)tile.GetComponent<ILinkable>();
                 view.Link(tileEntity);
                 tileEntity.Get<LinkComponent>().View = view;
+                if (view.active)
+                {
+                    tileEntity.Get<ActiveTileFlag>();
+                }
                 
+
                 view.Transform.gameObject.name = "Tile_" + index++;
             }
         }

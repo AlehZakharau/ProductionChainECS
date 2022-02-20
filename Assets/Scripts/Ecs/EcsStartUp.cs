@@ -27,15 +27,17 @@ namespace Ecs
         private readonly EcsWorld world;
         private readonly IBuildingConstructor buildingConstructor;
         private readonly ITileConstructor tileConstructor;
+        private readonly IMonoConstructor monoConstructor;
         private readonly Controls controls;
         private EcsSystems systems;
         
         public EcsStartUp(EcsWorld world, IBuildingConstructor buildingConstructor, 
-            ITileConstructor tileConstructor, Controls controls)
+            ITileConstructor tileConstructor, IMonoConstructor monoConstructor, Controls controls)
         {
             this.world = world;
             this.buildingConstructor = buildingConstructor;
             this.tileConstructor = tileConstructor;
+            this.monoConstructor = monoConstructor;
             this.controls = controls;
         }
         public void Start()
@@ -85,7 +87,7 @@ namespace Ecs
             
             Debug.Log($"CreateWorld {world.IsAlive().ToString()}");
             buildingConstructor.CreateBuildings();
-            buildingConstructor.CreateCamera();
+            monoConstructor.CreateCamera();
             tileConstructor.CreateTilesField();
         }
 

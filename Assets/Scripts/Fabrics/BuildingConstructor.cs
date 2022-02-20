@@ -18,7 +18,6 @@ namespace Fabrics
     public interface IBuildingConstructor
     {
         public void CreateBuildings();
-        public void CreateCamera();
         public BridgeView CreateBridge(EcsEntity bridge);
     }
 
@@ -26,22 +25,28 @@ namespace Fabrics
     {
         private readonly EcsWorld world;
         private readonly TemplatesKeeper templatesKeeper;
+        private readonly PrefabTemplate prefabTemplate;
         private readonly IBuildingFactory buildingFabric;
 
         private List<IBuildingTemplate> buildingTemplates;
 
         private int bridgeCounter;
 
-        public BuildingConstructor(EcsWorld world, TemplatesKeeper templatesKeeper, IBuildingFactory buildingFabric )
+        public BuildingConstructor(EcsWorld world, TemplatesKeeper templatesKeeper, PrefabTemplate prefabTemplate,
+            IBuildingFactory buildingFabric )
         {
             this.world = world;
             this.templatesKeeper = templatesKeeper;
+            this.prefabTemplate = prefabTemplate;
             this.buildingFabric = buildingFabric;
         }
 
         public void CreateBuildings()
         {
+#if UNITY_EDITOR
             var index =0;
+            var towerIndex = 0;
+#endif
             buildingTemplates = templatesKeeper.GetTemplates();
             foreach (var template in buildingTemplates)
             {
@@ -50,17 +55,36 @@ namespace Fabrics
                     case Building.Extractor:
                         var extractorTemplate = (IExtractorTemplate)template;
                         
-                        var instance = buildingFabric.CreateBuilding(
+                        var extractorInstance = buildingFabric.CreateBuilding(
                             extractorTemplate.ExtractorConfig.extractorView.gameObject,
                             extractorTemplate.Transform.position);
-                        var view = instance.GetComponent<ILinkable>();
-                        view.Transform.SetParent(extractorTemplate.Transform);
+                        var extractorView = extractorInstance.GetComponent<ILinkable>();
+                        extractorView.Transform.SetParent(extractorTemplate.Transform);
 
                         var extractorEntity = world.CreateExtractor(extractorTemplate);
-                        extractorEntity.Get<LinkComponent>().View = view;
-                        view.Link(extractorEntity);
+                        extractorEntity.Get<LinkComponent>().View = extractorView;
+                        extractorView.Link(extractorEntity);
                         
-                        view.Transform.gameObject.name = "Extractor_" + index++;
+#if UNITY_EDITOR
+                        extractorView.Transform.gameObject.name = "Extractor_" + index++;
+#endif
+                        break;
+                    case Building.Tower:
+                        var towerTemplate = (ITowerTemplate)template;
+
+                        var towerInstance = buildingFabric.CreateBuilding(
+                            towerTemplate.TowerConfig.towerView.gameObject,
+                            towerTemplate.Transform.position);
+                        var towerView = towerInstance.GetComponent<ILinkable>();
+                        towerView.Transform.SetParent(towerTemplate.Transform);
+
+                        var towerEntity = world.CreateTower(towerTemplate);
+                        towerEntity.Get<LinkComponent>().View = towerView;
+                        towerView.Link(towerEntity);
+#if UNITY_EDITOR
+                        towerView.Transform.gameObject.name = "Tower_" + towerIndex++;
+#endif
+                        
                         break;
                     default:
                         Debug.Log($"This type doesn't exist");
@@ -69,19 +93,9 @@ namespace Fabrics
             }
         }
 
-        public void CreateCamera()
-        {
-            var cameraEntity = world.NewEntity();
-            var cameraView = templatesKeeper.GetCamera();
-            cameraEntity.Get<CameraComponent>();
-            cameraEntity.Get<LinkComponent>().View = cameraView;
-            cameraView.Link(cameraEntity);
-
-        }
-
         public BridgeView CreateBridge(EcsEntity bridge)
         {
-            var config = templatesKeeper.GetBridge();
+            var config = prefabTemplate.GetBridge();
             var instance = buildingFabric.CreateBuilding(config.bridgeView.gameObject, Vector3.zero);
             var view = instance.GetComponent<ILinkable>();
             view.Transform.SetParent(config.Parent);
@@ -89,9 +103,12 @@ namespace Fabrics
 
             bridge.Get<LinkComponent>().View = view;
             bridge.Get<TransportationSpeedComponent>().Speed = config.transportSpeed;
-
+#if UNITY_EDITOR
             view.Transform.gameObject.name = "Bridge_" + bridgeCounter++;
+#endif
             return view as BridgeView;
         }
+
+        
     }
 }

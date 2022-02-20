@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Ecs;
 using Ecs.Systems;
+using Ecs.Systems.Components;
 using Ecs.Systems.Manufacture.Production.Components;
 using Ecs.Systems.Upgrade;
 using Fabrics.Templates;
@@ -30,6 +31,24 @@ namespace Fabrics.Extension
             }
 
             return extractorEntity;
+        }
+
+        public static EcsEntity CreateTower(this EcsWorld world, ITowerTemplate towerTemplate)
+        {
+            var config = towerTemplate.TowerConfig;
+            var towerEntity = world.NewEntity();
+            towerEntity.Get<Tower>();
+            towerEntity.Get<LevelComponent>().Level = config.startLevel;
+            towerEntity.Get<NewLevelComponent>().NewLevel = config.startLevel;
+            ref var upgrade = ref towerEntity.Get<UpgradeResourcesComponent>();
+            upgrade.DemandUpgradeResources = new Dictionary<Resource, int>();
+
+            for (int i = 0; i < config.resources.Length; i++)
+            {
+                upgrade.DemandUpgradeResources.Add(config.resources[i], config.amountResource[i]);
+            }
+
+            return towerEntity;
         }
     }
 }

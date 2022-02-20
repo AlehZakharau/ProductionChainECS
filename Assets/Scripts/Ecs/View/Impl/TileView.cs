@@ -4,6 +4,7 @@ namespace Ecs.View.Impl
 {
     public sealed class TileView : LinkView
     {
+        public bool active = false;
         [SerializeField] private Animator animator;
         [SerializeField] private SpriteRenderer sprite;
         private static readonly int Activate = Animator.StringToHash("Activate");
