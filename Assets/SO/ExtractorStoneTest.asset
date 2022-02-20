@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7748627f63e64949992a8c91216eac1e, type: 3}
-  m_Name: ExtractorConfig
+  m_Name: ExtractorStoneTest
   m_EditorClassIdentifier: 
   extractorView: {fileID: 8814604580203847214, guid: 30253feea1815b547b1bc1868b119773, type: 3}
   startLevel: 1
-  resource: 0
+  resource: 1
   productionSpeed: 1
-  resources: 01000000
+  resources: 00000000
   amountResource: 05000000

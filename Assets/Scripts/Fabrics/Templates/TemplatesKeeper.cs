@@ -9,6 +9,7 @@ namespace Fabrics.Templates
     public sealed class TemplatesKeeper : MonoBehaviour
     {
         [SerializeField] private List<ExtractorTemplate> extractorTemplate;
+        [SerializeField] private List<TowerTemplate> towerTemplates;
         [SerializeField] private TileView[] tileViews;
         public List<IBuildingTemplate> GetTemplates()
         {
@@ -17,6 +18,11 @@ namespace Fabrics.Templates
             foreach (var extractorTemplate in extractorTemplate)
             {
                 templates.Add(extractorTemplate);
+            }
+
+            foreach (var towerTemplate in towerTemplates)
+            {
+                templates.Add(towerTemplate);
             }
 
             return templates;

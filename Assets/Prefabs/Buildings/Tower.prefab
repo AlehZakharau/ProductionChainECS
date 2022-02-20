@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1470733366706670128}
   - component: {fileID: 7170851311197933163}
   m_Layer: 6
-  m_Name: Wood
+  m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644800013316901977}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4800910123715505499}
   - component: {fileID: 7723992879865856592}
   m_Layer: 6
-  m_Name: Wood
+  m_Name: ActiveImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 23fd859a12f210848bdae472470fca43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d8ce2c26f02ed94cb46393a6f06b404, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -257,10 +257,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5539325562673352756}
-  - component: {fileID: 8814604580203847214}
+  - component: {fileID: 81908264396089611}
   - component: {fileID: 2185996349592935386}
   m_Layer: 6
-  m_Name: ExtractorTest
+  m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,7 +282,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8814604580203847214
+--- !u!114 &81908264396089611
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6025948385934820883}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4342fbbc418144bb8adefbdcc200de9a, type: 3}
+  m_Script: {fileID: 11500000, guid: 37749d053d704fad9ec1b8e48dfaeebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tileRender: {fileID: 4435846729253027687}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 8541888045489500532}
   - component: {fileID: 5272011319986640679}
   m_Layer: 6
-  m_Name: WoodDA
+  m_Name: DeactiveImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -379,7 +379,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: a80e1cf6356869a469ed6b40cbbccf9e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f6e1abe41892be4e8325342478fec04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
