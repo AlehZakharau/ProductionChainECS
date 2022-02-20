@@ -42,8 +42,8 @@ namespace Ecs.Systems.Pool
 
         private bool CheckDistance(Vector3 availablePosition, Vector3 cameraPosition)
         {
-            var offset = availablePosition - cameraPosition;
-            return Mathf.Abs(offset.x) > 15 || Mathf.Abs(offset.y) > 15;
+            var offset = (availablePosition - cameraPosition).sqrMagnitude;
+            return offset > 500;
         }
     }
 }

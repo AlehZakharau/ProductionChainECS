@@ -14,6 +14,7 @@ using Ecs.Systems.Pool.Components;
 using Ecs.Systems.Transportation;
 using Ecs.Systems.Transportation.Components;
 using Ecs.Systems.Upgrade;
+using Ecs.TowerOpenNewTiles;
 using Fabrics;
 using Leopotam.Ecs;
 using PlayerInput;
@@ -62,6 +63,8 @@ namespace Ecs
                 .Add(new ClearTransportSystem())
                 .Add(new CancelSystem())
                 
+                .Add(new OpenTilesSystem())
+                
                 .Add(new AvailableCheckingCameraSystem())
                 .Add(new RequestTilePoolSystem())
                 .Add(new ReturnToPoolSystem())
@@ -73,6 +76,7 @@ namespace Ecs
                 
                 .OneFrame<ProduceFlag>()
                 .OneFrame<NewLevelComponent>()
+                .OneFrame<UpgradedFlag>()
                 .OneFrame<CheckUpgradeOpportunityFlag>()
                 .OneFrame<ReturnPoolFlag>()
                 .OneFrame<RequestPoolFlag>()

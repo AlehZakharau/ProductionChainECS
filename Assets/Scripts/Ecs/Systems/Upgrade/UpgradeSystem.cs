@@ -16,6 +16,7 @@ namespace Ecs.Systems.Upgrade
                 buildings.Get2(i).View.UpgradeBuilding(buildings.Get1(i).NewLevel);
 
                 var entity = buildings.GetEntity(i);
+                entity.Get<UpgradedFlag>();
             }   
         }
     }

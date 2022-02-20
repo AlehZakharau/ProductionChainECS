@@ -1,12 +1,13 @@
 ﻿using Ecs.Components;
 using Ecs.Systems.Pool.Components;
+using Ecs.TowerOpenNewTiles.Components;
 using Leopotam.Ecs;
 
 namespace Ecs.Systems.Pool
 {
-    public class RequestTilePoolSystem : IEcsRunSystem
+    public sealed class RequestTilePoolSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<Tile, LinkComponent, Available, RequestPoolFlag> availableTiles;
+        private readonly EcsFilter<Tile, LinkComponent, Available, ActiveTileFlag, RequestPoolFlag> availableTiles = default;
         public void Run()
         {
             foreach (var i in availableTiles)

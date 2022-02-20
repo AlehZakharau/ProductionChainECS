@@ -4,6 +4,7 @@ using Ecs.Systems;
 using Ecs.Systems.Components;
 using Ecs.Systems.Manufacture.Production.Components;
 using Ecs.Systems.Upgrade;
+using Ecs.TowerOpenNewTiles.Components;
 using Fabrics.Templates;
 using Leopotam.Ecs;
 
@@ -40,6 +41,7 @@ namespace Fabrics.Extension
             towerEntity.Get<Tower>();
             towerEntity.Get<LevelComponent>().Level = config.startLevel;
             towerEntity.Get<NewLevelComponent>().NewLevel = config.startLevel;
+            towerEntity.Get<TowerRadius>().Radius = config.radius;
             ref var upgrade = ref towerEntity.Get<UpgradeResourcesComponent>();
             upgrade.DemandUpgradeResources = new Dictionary<Resource, int>();
 

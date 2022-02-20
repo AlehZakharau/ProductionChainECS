@@ -1,6 +1,6 @@
 ﻿using Ecs.Components;
 using Ecs.Systems.Pool.Components;
-using Ecs.Tower.Components;
+using Ecs.TowerOpenNewTiles.Components;
 using Ecs.View;
 using Ecs.View.Impl;
 using Fabrics.Templates;
