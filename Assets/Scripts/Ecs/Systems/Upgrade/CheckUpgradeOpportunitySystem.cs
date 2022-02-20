@@ -5,7 +5,7 @@ namespace Ecs.Systems.Upgrade
     public sealed class CheckUpgradeOpportunitySystem : IEcsRunSystem
     {
         private readonly EcsFilter<UpgradeResourcesComponent, 
-            CheckUpgradeOpportunityFlag, LevelComponent> buildings;
+            CheckUpgradeOpportunityFlag, LevelComponent> buildings = default;
         public void Run()
         {
             if(buildings.IsEmpty()) return;

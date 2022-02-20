@@ -10,6 +10,7 @@ namespace Ecs.View
         public int Hash => transform.GetHashCode();
         public Transform Transform => transform;
         public int UnityInstanceId => gameObject.GetInstanceID();
+
         public void Link(EcsEntity entity)
         {
             Entity = entity;

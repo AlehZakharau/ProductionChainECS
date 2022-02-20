@@ -45,6 +45,10 @@ namespace Ecs
         {
             var dataManager = new DataManager();
             var gameDataBase = new GameDataBase();
+            
+            buildingConstructor.CreateBuildings();
+            monoConstructor.CreateCamera();
+            tileConstructor.CreateTilesField();
 
             systems = new EcsSystems(world);
             
@@ -55,6 +59,9 @@ namespace Ecs
                 .Add(new ProductionSystem())
                 .Add(new ExtractorProductionSystem())
                 
+                .Add(new CreateUpgradeViewsSystem())
+                .Add(new AddUpgradeResourceSystem())
+                .Add(new CheckUpgradeOpportunitySystem())
                 .Add(new UpgradeSystem())
                 
                 .Add(new ClickExtractorSystem())
@@ -91,9 +98,7 @@ namespace Ecs
                 .Init();
             
             Debug.Log($"CreateWorld {world.IsAlive().ToString()}");
-            buildingConstructor.CreateBuildings();
-            monoConstructor.CreateCamera();
-            tileConstructor.CreateTilesField();
+            
         }
 
         public void Tick()

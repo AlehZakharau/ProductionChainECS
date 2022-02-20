@@ -828,7 +828,7 @@ GameObject:
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &39274891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3690,7 +3690,7 @@ GameObject:
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &192096157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34587,7 +34587,7 @@ GameObject:
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2008257506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38522,6 +38522,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4569708804447308182, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
+      propertyPath: extractorTemplate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569708804447308182, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
       propertyPath: towerTemplates.Array.data[0]
       value: 
       objectReference: {fileID: 1159025147}
@@ -38541,6 +38545,10 @@ PrefabInstance:
       propertyPath: extractorTemplate.Array.data[3]
       value: 
       objectReference: {fileID: 39274891}
+    - target: {fileID: 4569708804447308183, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
+      propertyPath: upgradeView
+      value: 
+      objectReference: {fileID: 1958807270920619777, guid: fc736e8bd253f794a982ffe418379af6, type: 3}
     - target: {fileID: 4569708804447308183, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
       propertyPath: bridgeParent
       value: 
