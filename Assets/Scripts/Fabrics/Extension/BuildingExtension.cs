@@ -19,6 +19,7 @@ namespace Fabrics.Extension
             var config = extractorTemplate.ExtractorConfig;
             var extractorEntity = world.NewEntity();
             extractorEntity.Get<Extractor>();
+            extractorEntity.Get<ExtractorConfigComponent>().Template = extractorTemplate;
             extractorEntity.Get<ProductionSpeedComponent>().ProductionSpeed = config.productionSpeed;
             extractorEntity.Get<ResourceComponent>().Resource = config.resource;
             extractorEntity.Get<LevelComponent>().Level = config.startLevel;
@@ -39,6 +40,7 @@ namespace Fabrics.Extension
             var config = towerTemplate.TowerConfig;
             var towerEntity = world.NewEntity();
             towerEntity.Get<Tower>();
+            towerEntity.Get<TowerConfigComponent>().Template = towerTemplate;
             towerEntity.Get<LevelComponent>().Level = config.startLevel;
             towerEntity.Get<NewLevelComponent>().NewLevel = config.startLevel;
             towerEntity.Get<TowerRadius>().Radius = config.radius;
