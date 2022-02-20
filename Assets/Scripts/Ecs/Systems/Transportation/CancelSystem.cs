@@ -26,6 +26,9 @@ namespace Ecs.Systems.Transportation
                     case ECancelMessage.Busy:
                         Debug.Log($"Cancel, Sender Busy");
                         break;
+                    case ECancelMessage.SenderNull:
+                        Debug.Log($"You need choose fabric first");
+                        break;
                 }
                 var clickable = (IClickable)cancel.Get2(i).View;
                 clickable.UnSelect();

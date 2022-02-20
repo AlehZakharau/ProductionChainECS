@@ -58,6 +58,7 @@ namespace Ecs
                 .Add(new UpgradeSystem())
                 
                 .Add(new ClickExtractorSystem())
+                .Add(new ClickTowerSystem())
                 .Add(new BridgeInstantiateSystem())
                 .Add(new BridgeSystem())
                 .Add(new ClearTransportSystem())

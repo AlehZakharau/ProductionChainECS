@@ -47,6 +47,33 @@ namespace Ecs.Extension
             }
         }
 
+        public static void SetReceiverMember(this EcsWorld world, EcsEntity newMember)
+        {
+            if (sender.IsNull())
+            {
+                newMember.Get<CancelComponent>().Message = ECancelMessage.SenderNull;
+            }
+            else if(receiver.IsNull())
+            {
+                receiver = newMember;
+                if (CheckMatchingResources(sender, receiver))
+                {
+                    // Create transport
+                    sender.Get<SenderBusyFlag>();
+                    var transportEntity = world.NewEntity();
+                    transportEntity.Get<Bridge>();
+                    transportEntity.Get<NewBridgeFlag>();
+                    var transport = new TransportBridgeComponent { Sender = sender, Receiver = receiver };
+                    transportEntity.Get<TransportBridgeComponent>() = transport;
+                    ClearTransportService(world, ECancelMessage.Cancel);
+                }
+                else
+                {
+                    ClearTransportService(world, ECancelMessage.Wrong);
+                }
+            }
+        }
+
         public static void ClearTransportService(this EcsWorld world, ECancelMessage message)
         {
             if(sender.IsNull()) return;
