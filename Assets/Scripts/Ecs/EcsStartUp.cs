@@ -29,16 +29,18 @@ namespace Ecs
         private readonly IBuildingConstructor buildingConstructor;
         private readonly ITileConstructor tileConstructor;
         private readonly IMonoConstructor monoConstructor;
+        private readonly IGameConfig gameConfig;
         private readonly Controls controls;
         private EcsSystems systems;
         
         public EcsStartUp(EcsWorld world, IBuildingConstructor buildingConstructor, 
-            ITileConstructor tileConstructor, IMonoConstructor monoConstructor, Controls controls)
+            ITileConstructor tileConstructor, IMonoConstructor monoConstructor, Controls controls, IGameConfig gameConfig)
         {
             this.world = world;
             this.buildingConstructor = buildingConstructor;
             this.tileConstructor = tileConstructor;
             this.monoConstructor = monoConstructor;
+            this.gameConfig = gameConfig;
             this.controls = controls;
         }
         public void Start()
@@ -63,6 +65,7 @@ namespace Ecs
                 .Add(new AddUpgradeResourceSystem())
                 .Add(new CheckUpgradeOpportunitySystem())
                 .Add(new UpgradeSystem())
+                .Add(new ExtractorUpgradeSystem())
                 
                 .Add(new ClickExtractorSystem())
                 .Add(new ClickTowerSystem())
@@ -81,6 +84,7 @@ namespace Ecs
                 .Inject(gameDataBase)
                 .Inject(buildingConstructor)
                 .Inject(controls)
+                .Inject(gameConfig)
                 
                 .OneFrame<ProduceFlag>()
                 .OneFrame<NewLevelComponent>()

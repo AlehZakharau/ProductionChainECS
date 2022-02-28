@@ -8,7 +8,7 @@ namespace Fabrics.Templates
     {
         [SerializeField] private BridgeConfig bridgeConfig;
         [SerializeField] private Transform bridgeParent;
-        [SerializeField] private UpgradeView upgradeView;
+        [SerializeField] private UpgradeConfig upgradeConfig;
         
         
         public BridgeConfig GetBridge()
@@ -17,9 +17,9 @@ namespace Fabrics.Templates
             return bridgeConfig;
         }
 
-        public UpgradeView GetUpgradeView()
+        public UpgradeConfig GetUpgradeView()
         {
-            return upgradeView;
+            return upgradeConfig;
         }
     }
 }

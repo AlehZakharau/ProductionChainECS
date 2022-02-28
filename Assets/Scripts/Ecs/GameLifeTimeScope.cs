@@ -18,6 +18,7 @@ namespace Ecs
         [SerializeField] private PrefabTemplate prefabTemplate;
         [SerializeField] private MonoTemplate monoTemplate;
         [SerializeField] private BuildingFabric buildingFabric;
+        [SerializeField] private GameConfig gameConfig;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -52,6 +53,7 @@ namespace Ecs
             builder.RegisterComponent(templatesKeeper);
             builder.RegisterComponent(prefabTemplate);
             builder.RegisterComponent(monoTemplate);
+            builder.RegisterComponent(gameConfig).As<IGameConfig>();
             builder.RegisterInstance(buildingFabric).As<IBuildingFactory>();
 
         }

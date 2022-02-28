@@ -854,7 +854,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &40493409 stripped
 MonoBehaviour:
@@ -3471,7 +3471,7 @@ Transform:
   m_LocalScale: {x: 5.2296, y: 5.2296, z: 5.2296}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: -89.329, y: 0, z: 0}
 --- !u!1001 &186236895
 PrefabInstance:
@@ -3716,7 +3716,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &193972171
 PrefabInstance:
@@ -13576,7 +13576,7 @@ Transform:
   - {fileID: 882452392}
   - {fileID: 842503468}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &734092462 stripped
 Transform:
@@ -15974,6 +15974,10 @@ PrefabInstance:
       propertyPath: dataView
       value: 
       objectReference: {fileID: 1981775064}
+    - target: {fileID: 9165397039038070701, guid: da6381e91a56b874881124b929892e26, type: 3}
+      propertyPath: gameConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: a3a7d0f51bbc9464db84fb0d89de3dfd, type: 2}
     - target: {fileID: 9165397039038070701, guid: da6381e91a56b874881124b929892e26, type: 3}
       propertyPath: monoTemplate
       value: 
@@ -21863,7 +21867,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1159921797 stripped
 Transform:
@@ -34613,7 +34617,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2009016272 stripped
 Transform:
@@ -38553,6 +38557,10 @@ PrefabInstance:
       propertyPath: bridgeParent
       value: 
       objectReference: {fileID: 1065152731}
+    - target: {fileID: 4569708804447308183, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
+      propertyPath: upgradeConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: fb9746459edeb284e9ae89102137b50b, type: 2}
     - target: {fileID: 4569708804447308185, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
       propertyPath: m_RootOrder
       value: 6

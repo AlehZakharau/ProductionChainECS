@@ -5,7 +5,7 @@ namespace Ecs.Systems.Upgrade
 {
     public sealed class UpgradeSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<NewLevelComponent, LinkComponent> buildings;
+        private readonly EcsFilter<NewLevelComponent, LevelComponent, LinkComponent> buildings = default;
         
         public void Run()
         {
@@ -13,7 +13,8 @@ namespace Ecs.Systems.Upgrade
             
             foreach (var i in buildings)
             { 
-                buildings.Get2(i).View.UpgradeBuilding(buildings.Get1(i).NewLevel);
+                buildings.Get3(i).View.UpgradeBuilding(buildings.Get1(i).NewLevel);
+                buildings.Get2(i).Level++;
 
                 var entity = buildings.GetEntity(i);
                 entity.Get<UpgradedFlag>();

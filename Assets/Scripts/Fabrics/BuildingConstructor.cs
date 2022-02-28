@@ -19,7 +19,7 @@ namespace Fabrics
     {
         public void CreateBuildings();
         public BridgeView CreateBridge(EcsEntity bridge);
-        public UpgradeView CreateUpgradeViews(Resource resource, int maxResource, Transform parent);
+        public IUpgradeView CreateUpgradeViews(Resource resource, int maxResource, Transform parent);
     }
 
     public sealed class BuildingConstructor : IBuildingConstructor
@@ -110,13 +110,14 @@ namespace Fabrics
             return view as BridgeView;
         }
 
-        public UpgradeView CreateUpgradeViews(Resource resource, int maxResource, Transform parent)
+        public IUpgradeView CreateUpgradeViews(Resource resource, int maxResource, Transform parent)
         {
-            var upgradePrefab = prefabTemplate.GetUpgradeView();
-            var instance = buildingFabric.CreateBuilding(upgradePrefab.gameObject, Vector3.zero);
-            upgradePrefab.Init(resource, maxResource);
+            var upgradeConfig = prefabTemplate.GetUpgradeView();
+            var instance = buildingFabric.CreateBuilding(upgradeConfig.upgradeView.gameObject, Vector3.zero);
+            var view = instance.GetComponent<IUpgradeView>();
+            view.Init(resource, maxResource, upgradeConfig.GetIcon(resource));
             instance.transform.SetParent(parent);
-            return instance.GetComponent<UpgradeView>();
+            return view;
         }
     }
 }

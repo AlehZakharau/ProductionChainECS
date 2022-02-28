@@ -33,13 +33,13 @@ namespace Ecs.PlayerInput
             var cameraView = (CameraView)camera.Get2(0).View;
             if (leftClick)
             {
-                currentClickable?.UnSelect();
                 var ray = cameraView.camera.ScreenPointToRay(cursorPosition);
                 world.NewEntity().Get<CameraMovementEnableFlag>();
                 if (Physics.Raycast(ray, out var hit, Mathf.Infinity, clickableMask))
                 {
                     if(hit.collider.TryGetComponent(out IClickable clickable))
                     {
+                        currentClickable?.UnSelect();
                         currentClickable = clickable;
                         currentClickable.Select();
                         currentClickable.Click();

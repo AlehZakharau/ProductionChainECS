@@ -5,6 +5,6 @@ namespace Ecs.Systems.Upgrade
 {
     public struct UpgradeViewsComponent
     {
-        public List<UpgradeView> UpgradeViews;
+        public List<IUpgradeView> UpgradeViews;
     }
 }
