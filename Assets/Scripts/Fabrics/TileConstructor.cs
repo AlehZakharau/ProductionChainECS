@@ -34,7 +34,6 @@ namespace Fabrics
             {
                 var tileEntity = world.NewEntity();
                 tileEntity.Get<Tile>();
-                tileEntity.Get<Pooled>();
                 var view = (TileView)tile.GetComponent<ILinkable>();
                 view.Link(tileEntity);
                 tileEntity.Get<LinkComponent>().View = view;
