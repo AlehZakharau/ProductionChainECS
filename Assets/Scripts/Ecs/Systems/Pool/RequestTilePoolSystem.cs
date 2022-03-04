@@ -1,6 +1,6 @@
 ﻿using Ecs.Components;
 using Ecs.Systems.Pool.Components;
-using Ecs.TowerOpenNewTiles.Components;
+using Ecs.Towers.Components;
 using Leopotam.Ecs;
 
 namespace Ecs.Systems.Pool

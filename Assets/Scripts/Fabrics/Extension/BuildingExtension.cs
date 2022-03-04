@@ -4,7 +4,7 @@ using Ecs.Systems;
 using Ecs.Systems.Components;
 using Ecs.Systems.Manufacture.Production.Components;
 using Ecs.Systems.Upgrade;
-using Ecs.TowerOpenNewTiles.Components;
+using Ecs.Towers.Components;
 using Fabrics.Templates;
 using Leopotam.Ecs;
 

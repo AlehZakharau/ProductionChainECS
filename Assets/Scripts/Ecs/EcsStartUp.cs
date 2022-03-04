@@ -1,5 +1,6 @@
 ﻿using System;
 using DataBase;
+using Ecs.Boroughs;
 using Ecs.Components;
 using Ecs.PlayerInput;
 using Ecs.Systems;
@@ -14,7 +15,7 @@ using Ecs.Systems.Pool.Components;
 using Ecs.Systems.Transportation;
 using Ecs.Systems.Transportation.Components;
 using Ecs.Systems.Upgrade;
-using Ecs.TowerOpenNewTiles;
+using Ecs.Towers;
 using Fabrics;
 using Leopotam.Ecs;
 using PlayerInput;
@@ -66,6 +67,7 @@ namespace Ecs
                 .Add(new CheckUpgradeOpportunitySystem())
                 .Add(new UpgradeSystem())
                 .Add(new ExtractorUpgradeSystem())
+                .Add(new BoroughUpgradeSystem())
                 
                 .Add(new ClickExtractorSystem())
                 .Add(new ClickTowerSystem())

@@ -17,6 +17,7 @@ namespace Fabrics
 {
     public interface IBuildingConstructor
     {
+        public void CreateBorough(IBoroughTemplate template);
         public void CreateBuildings();
         public BridgeView CreateBridge(EcsEntity bridge);
         public IUpgradeView CreateUpgradeViews(Resource resource, int maxResource, Transform parent);
@@ -32,6 +33,7 @@ namespace Fabrics
         private List<IBuildingTemplate> buildingTemplates;
 
         private int bridgeCounter;
+        private int boroughIndex;
 
         public BuildingConstructor(EcsWorld world, TemplatesKeeper templatesKeeper, PrefabTemplate prefabTemplate,
             IBuildingFactory buildingFabric )
@@ -47,7 +49,6 @@ namespace Fabrics
 #if UNITY_EDITOR
             var index =0;
             var towerIndex = 0;
-            var boroughIndex = 0;
 #endif
             buildingTemplates = templatesKeeper.GetTemplates();
             foreach (var template in buildingTemplates)
@@ -110,6 +111,21 @@ namespace Fabrics
                         break;
                 }
             }
+        }
+
+        public void CreateBorough(IBoroughTemplate template)
+        {
+            var config = template.BoroughConfig;
+            var instance = buildingFabric.CreateBuilding(config.boroughView.gameObject, template.Transform.position);
+            var view = instance.GetComponent<ILinkable>();
+            view.Transform.SetParent(template.Transform);
+            var boroughEntity = world.CreateBorough(template);
+            view.Link(boroughEntity);
+
+            boroughEntity.Get<LinkComponent>().View = view;
+#if UNITY_EDITOR
+            view.Transform.gameObject.name = "Borough" + boroughIndex++;
+#endif
         }
 
         public BridgeView CreateBridge(EcsEntity bridge)

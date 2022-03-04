@@ -1,6 +1,6 @@
 ﻿using Leopotam.Ecs;
 
-namespace Ecs.TowerOpenNewTiles.Components
+namespace Ecs.Towers.Components
 {
     public struct ActiveTileFlag : IEcsIgnoreInFilter
     {

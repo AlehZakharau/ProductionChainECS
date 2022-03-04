@@ -19,5 +19,6 @@ namespace Fabrics.Templates
         public Building Building => Building.Borough;
         public Transform Transform => transform;
         public BoroughConfig BoroughConfig => boroughConfig;
+        public BoroughTemplate[] NewBoroughs => boroughTemplates;
     }
 }

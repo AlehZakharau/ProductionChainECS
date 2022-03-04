@@ -5,5 +5,6 @@ namespace Ecs.Systems.Components
     public struct BoroughConfigComponent
     {
         public IBoroughTemplate BoroughTemplate;
+        public int NewBoroughsIndex;
     }
 }

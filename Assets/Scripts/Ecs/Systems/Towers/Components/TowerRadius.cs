@@ -1,4 +1,4 @@
-﻿namespace Ecs.TowerOpenNewTiles.Components
+﻿namespace Ecs.Towers.Components
 {
     public struct TowerRadius
     {

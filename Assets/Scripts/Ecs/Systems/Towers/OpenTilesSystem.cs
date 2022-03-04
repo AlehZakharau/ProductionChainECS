@@ -2,15 +2,15 @@
 using Ecs.Systems.Components;
 using Ecs.Systems.Pool.Components;
 using Ecs.Systems.Upgrade;
-using Ecs.TowerOpenNewTiles.Components;
+using Ecs.Towers.Components;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Ecs.TowerOpenNewTiles
+namespace Ecs.Towers
 {
     public sealed class OpenTilesSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<Tower, UpgradedFlag, TowerRadius, LevelComponent, LinkComponent> tower = default;
+        private readonly EcsFilter<Systems.Components.Tower, UpgradedFlag, TowerRadius, LevelComponent, LinkComponent> tower = default;
         private readonly EcsFilter<Tile, LinkComponent>.Exclude<ActiveTileFlag> tiles = default;
         public void Run()
         {
