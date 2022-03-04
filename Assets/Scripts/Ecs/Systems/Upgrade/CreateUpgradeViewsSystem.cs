@@ -9,12 +9,13 @@ using UnityEngine;
 
 namespace Ecs.Systems.Upgrade
 {
-    public class CreateUpgradeViewsSystem : IEcsInitSystem
+    public class CreateUpgradeViewsSystem : IEcsRunSystem
     {
         private readonly IGameConfig gameConfig = null;
         private readonly IBuildingConstructor buildingConstructor = null;
-        private readonly EcsFilter<UpgradeResourcesComponent, LinkComponent, UpgradeViewsComponent> buildings = default;
-        public void Init()
+        private readonly EcsFilter<UpgradeResourcesComponent, LinkComponent, UpgradeViewsComponent, 
+            UpgradeViewsFlag> buildings = default;
+        public void Run()
         {
             foreach (var i in buildings)
             {
@@ -30,6 +31,8 @@ namespace Ecs.Systems.Upgrade
                     upgradeViews.UpgradeViews.Add(upgrade);
                 }
                 SpreadObjects(upgradeViews.UpgradeViews);
+                var entity = buildings.GetEntity(i);
+                entity.Del<UpgradeViewsFlag>();
             }
         }
         

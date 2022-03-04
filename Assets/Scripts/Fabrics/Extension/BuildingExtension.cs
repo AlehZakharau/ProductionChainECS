@@ -66,6 +66,7 @@ namespace Fabrics.Extension
             boroughEntity.Get<LevelComponent>().Level = config.startLevel;
             boroughEntity.Get<NewLevelComponent>().NewLevel = config.startLevel;
             boroughEntity.Get<UpgradeViewsComponent>();
+            boroughEntity.Get<UpgradeViewsFlag>();
             ref var upgrade = ref boroughEntity.Get<UpgradeResourcesComponent>();
             upgrade.DemandUpgradeResources = new Dictionary<Resource, int>();
 

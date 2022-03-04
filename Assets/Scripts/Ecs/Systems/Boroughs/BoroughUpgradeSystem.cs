@@ -16,11 +16,12 @@ namespace Ecs.Boroughs
             {
                 var currentLevel = boroughs.Get2(i).Level;
                 ref var config = ref boroughs.Get3(i);
+                if(config.BoroughTemplate.BoroughConfig.levelToOpenBorough.Length <= config.NewBoroughsIndex) return;
                 if (config.BoroughTemplate.BoroughConfig.levelToOpenBorough[config.NewBoroughsIndex]
                     == currentLevel)
                 {
+                    buildingConstructor.CreateBorough(config.BoroughTemplate.NewBoroughs[config.NewBoroughsIndex]);
                     config.NewBoroughsIndex++;
-                    buildingConstructor.CreateBorough(config.BoroughTemplate);
                 }
             }
         }

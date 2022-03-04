@@ -120,9 +120,9 @@ namespace Fabrics
             var view = instance.GetComponent<ILinkable>();
             view.Transform.SetParent(template.Transform);
             var boroughEntity = world.CreateBorough(template);
+            boroughEntity.Get<LinkComponent>().View = view;
             view.Link(boroughEntity);
 
-            boroughEntity.Get<LinkComponent>().View = view;
 #if UNITY_EDITOR
             view.Transform.gameObject.name = "Borough" + boroughIndex++;
 #endif

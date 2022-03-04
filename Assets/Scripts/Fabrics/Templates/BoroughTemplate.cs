@@ -8,6 +8,7 @@ namespace Fabrics.Templates
     {
         public Transform Transform { get; }
         public BoroughConfig BoroughConfig { get; }
+        public BoroughTemplate[] NewBoroughs { get; }
     }
     public sealed class BoroughTemplate : MonoBehaviour, IBoroughTemplate
     {

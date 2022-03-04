@@ -8,10 +8,11 @@ using UnityEngine;
 
 namespace Ecs.Systems.Transportation
 {
-    public sealed class ClickTowerSystem : IEcsRunSystem
+    public sealed class ClickNotProductionSystem : IEcsRunSystem
     {
         private readonly EcsWorld world = null;
         private readonly EcsFilter<Tower, UpgradeResourcesComponent, ClickFlag> tower = default;
+        private readonly EcsFilter<Borough, UpgradeResourcesComponent, ClickFlag> borough = default;
         public void Run()
         {
             foreach (var i in tower)
@@ -19,6 +20,13 @@ namespace Ecs.Systems.Transportation
                 var entity = tower.GetEntity(i);
                 world.SetReceiverMember(entity);
                 Debug.Log($"Tower call Transport service");
+            }
+
+            foreach (var i in borough)
+            {
+                var entity = borough.GetEntity(i);
+                world.SetReceiverMember(entity);
+                Debug.Log($"Borough call Transport service");
             }
         }
     }

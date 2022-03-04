@@ -70,7 +70,7 @@ namespace Ecs
                 .Add(new BoroughUpgradeSystem())
                 
                 .Add(new ClickExtractorSystem())
-                .Add(new ClickTowerSystem())
+                .Add(new ClickNotProductionSystem())
                 .Add(new BridgeInstantiateSystem())
                 .Add(new BridgeSystem())
                 .Add(new ClearTransportSystem())
