@@ -10,6 +10,7 @@ namespace Fabrics.Templates
     {
         [SerializeField] private List<ExtractorTemplate> extractorTemplate;
         [SerializeField] private List<TowerTemplate> towerTemplates;
+        [SerializeField] private List<BoroughTemplate> boroughTemplates;
         [SerializeField] private TileView[] tileViews;
         public List<IBuildingTemplate> GetTemplates()
         {
@@ -23,6 +24,11 @@ namespace Fabrics.Templates
             foreach (var towerTemplate in towerTemplates)
             {
                 templates.Add(towerTemplate);
+            }
+
+            foreach (var boroughTemplate in boroughTemplates)
+            {
+                templates.Add(boroughTemplate);
             }
 
             return templates;

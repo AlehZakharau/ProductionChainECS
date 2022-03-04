@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Fabrics.BuildingsConfigs
 {
     [CreateAssetMenu(fileName = "UpgradeConfig", menuName = "Configs/UpgradeView", order = 0)]
-    public class UpgradeConfig : ScriptableObject
+    public class UpgradeViewConfig : ScriptableObject
     {
         public UpgradeView upgradeView;
         [Header("Resource icons")]

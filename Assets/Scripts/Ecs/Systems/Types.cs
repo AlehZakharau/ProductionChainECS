@@ -10,7 +10,8 @@
     {
         Extractor,
         Refinery,
-        Tower
+        Tower,
+        Borough
     }
 
     public enum EMono

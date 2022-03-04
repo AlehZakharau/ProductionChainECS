@@ -49,12 +49,32 @@ namespace Fabrics.Extension
             ref var upgrade = ref towerEntity.Get<UpgradeResourcesComponent>();
             upgrade.DemandUpgradeResources = new Dictionary<Resource, int>();
 
-            for (int i = 0; i < config.resources.Length; i++)
+            for (var i = 0; i < config.resources.Length; i++)
             {
                 upgrade.DemandUpgradeResources.Add(config.resources[i], config.amountResource[i]);
             }
 
             return towerEntity;
+        }
+
+        public static EcsEntity CreateBorough(this EcsWorld world, IBoroughTemplate boroughTemplate)
+        {
+            var config = boroughTemplate.BoroughConfig;
+            var boroughEntity = world.NewEntity();
+            boroughEntity.Get<Borough>();
+            boroughEntity.Get<BoroughConfigComponent>().BoroughTemplate = boroughTemplate;
+            boroughEntity.Get<LevelComponent>().Level = config.startLevel;
+            boroughEntity.Get<NewLevelComponent>().NewLevel = config.startLevel;
+            boroughEntity.Get<UpgradeViewsComponent>();
+            ref var upgrade = ref boroughEntity.Get<UpgradeResourcesComponent>();
+            upgrade.DemandUpgradeResources = new Dictionary<Resource, int>();
+
+            for (var i = 0; i < config.resources.Length; i++)
+            {
+                upgrade.DemandUpgradeResources.Add(config.resources[i], config.amountResource[i]);
+            }
+            
+            return boroughEntity;
         }
     }
 }

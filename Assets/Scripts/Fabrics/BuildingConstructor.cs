@@ -47,6 +47,7 @@ namespace Fabrics
 #if UNITY_EDITOR
             var index =0;
             var towerIndex = 0;
+            var boroughIndex = 0;
 #endif
             buildingTemplates = templatesKeeper.GetTemplates();
             foreach (var template in buildingTemplates)
@@ -86,6 +87,23 @@ namespace Fabrics
                         towerView.Transform.gameObject.name = "Tower_" + towerIndex++;
 #endif
                         
+                        break;
+                    case Building.Borough:
+                        var boroughTemplate = (IBoroughTemplate)template;
+
+                        var boroughInstance = buildingFabric.CreateBuilding(
+                            boroughTemplate.BoroughConfig.boroughView.gameObject,
+                            boroughTemplate.Transform.position);
+                        var boroughView = boroughInstance.GetComponent<ILinkable>();
+                        boroughView.Transform.SetParent(boroughTemplate.Transform);
+
+                        var boroughEntity = world.CreateBorough(boroughTemplate);
+                        boroughEntity.Get<LinkComponent>().View = boroughView;
+                        boroughView.Link(boroughEntity);
+#if UNITY_EDITOR
+                        boroughView.Transform.gameObject.name = "Borough" + boroughIndex++;
+#endif
+
                         break;
                     default:
                         Debug.Log($"This type doesn't exist");
