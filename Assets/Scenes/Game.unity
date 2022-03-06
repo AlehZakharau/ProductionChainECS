@@ -38673,6 +38673,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4569708804447308182, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
+      propertyPath: extractorTemplates.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569708804447308182, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
       propertyPath: boroughTemplates.Array.data[0]
       value: 
       objectReference: {fileID: 1889390999}
@@ -38692,6 +38696,14 @@ PrefabInstance:
       propertyPath: extractorTemplate.Array.data[3]
       value: 
       objectReference: {fileID: 39274891}
+    - target: {fileID: 4569708804447308182, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
+      propertyPath: extractorTemplates.Array.data[0]
+      value: 
+      objectReference: {fileID: 1850265561}
+    - target: {fileID: 4569708804447308182, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
+      propertyPath: extractorTemplates.Array.data[1]
+      value: 
+      objectReference: {fileID: 2008257506}
     - target: {fileID: 4569708804447308183, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
       propertyPath: upgradeView
       value: 

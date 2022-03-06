@@ -1,4 +1,5 @@
 ﻿using CameraService;
+using Leopotam.Ecs;
 using UnityEngine;
 
 namespace Ecs.View.Impl
@@ -32,6 +33,13 @@ namespace Ecs.View.Impl
         public void UnSelect()
         {
             
+        }
+
+        public void Cancel()
+        {
+            Entity.Destroy();
+            
+            Destroy(gameObject);
         }
     }
 }

@@ -16,7 +16,8 @@ namespace DataBase
             dataBase.GameData = new GameData
             {
                 // manufactureData = new ManufactureData[manufactures.GetEntitiesCount()],
-                // transportData = new TransportData[manufactures.GetEntitiesCount()]
+                // transportData = new TransportData
+                // [manufactures.GetEntitiesCount()]
             };
         }
 

@@ -21,5 +21,10 @@ namespace Ecs.View.Impl
         {
             
         }
+
+        public void Cancel()
+        {
+            
+        }
     }
 }

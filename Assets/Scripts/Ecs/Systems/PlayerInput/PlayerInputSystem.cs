@@ -48,6 +48,7 @@ namespace Ecs.PlayerInput
             }
             if (rightClick)
             {
+                currentClickable?.Cancel();
                 currentClickable?.UnSelect();
                 currentClickable = null;
                 cameraView.CancelSelection();

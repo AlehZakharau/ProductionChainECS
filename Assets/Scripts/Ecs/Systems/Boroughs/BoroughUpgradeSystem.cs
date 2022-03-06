@@ -2,6 +2,7 @@
 using Ecs.Systems.Upgrade;
 using Fabrics;
 using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Ecs.Boroughs
 {
@@ -16,7 +17,11 @@ namespace Ecs.Boroughs
             {
                 var currentLevel = boroughs.Get2(i).Level;
                 ref var config = ref boroughs.Get3(i);
-                if(config.BoroughTemplate.BoroughConfig.levelToOpenBorough.Length <= config.NewBoroughsIndex) return;
+                if (config.BoroughTemplate.BoroughConfig.levelToOpenBorough.Length <= config.NewBoroughsIndex)
+                {
+                    Debug.LogWarning($"Borough doesn't have reference to new Borough");
+                    return;
+                }
                 if (config.BoroughTemplate.BoroughConfig.levelToOpenBorough[config.NewBoroughsIndex]
                     == currentLevel)
                 {

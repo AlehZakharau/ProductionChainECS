@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
-using Ecs.View;
 using Ecs.View.Impl;
-using Fabrics.BuildingsConfigs;
 using UnityEngine;
 
 namespace Fabrics.Templates
 {
     public sealed class TemplatesKeeper : MonoBehaviour
     {
-        [SerializeField] private List<ExtractorTemplate> extractorTemplate;
+        [SerializeField] private List<ExtractorTemplate> extractorTemplates;
         [SerializeField] private List<TowerTemplate> towerTemplates;
         [SerializeField] private List<BoroughTemplate> boroughTemplates;
         [SerializeField] private TileView[] tileViews;
@@ -16,7 +14,7 @@ namespace Fabrics.Templates
         {
             var templates = new List<IBuildingTemplate>();
 
-            foreach (var extractorTemplate in extractorTemplate)
+            foreach (var extractorTemplate in extractorTemplates)
             {
                 templates.Add(extractorTemplate);
             }
@@ -38,7 +36,5 @@ namespace Fabrics.Templates
         {
             return tileViews;
         }
-
-        
     }
 }

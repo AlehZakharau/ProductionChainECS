@@ -23,5 +23,10 @@ namespace Ecs.View.Impl
         {
             tileRender.color = Color.white;
         }
+
+        public void Cancel()
+        {
+            
+        }
     }
 }
