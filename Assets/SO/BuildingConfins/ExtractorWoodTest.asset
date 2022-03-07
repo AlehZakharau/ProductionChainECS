@@ -16,5 +16,6 @@ MonoBehaviour:
   startLevel: 0
   resource: 0
   productionSpeed: 1
-  resources: 
-  amountResource: 
+  upgradeDemandResources:
+  - resources: 
+    amountResource: 

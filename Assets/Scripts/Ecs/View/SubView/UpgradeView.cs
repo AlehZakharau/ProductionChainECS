@@ -8,6 +8,7 @@ namespace Ecs.View.Impl
         public Transform Transform { get; }
         public void Init(Resource addedResource, int maxResource, Sprite resourceIcon);
         public void DrawUpgradeResource(Resource addedResource, int amount);
+        public void DestroyView();
 
     }
     public sealed class UpgradeView : MonoBehaviour, IUpgradeView
@@ -37,6 +38,11 @@ namespace Ecs.View.Impl
             currentAmountResources += amount;
             amountText.text = $"{currentAmountResources} / {maxAmountResources}";
             Debug.Log($"{this.resource}: {currentAmountResources} / {maxAmountResources}");
+        }
+
+        public void DestroyView()
+        {
+            Destroy(gameObject);
         }
     }
 }

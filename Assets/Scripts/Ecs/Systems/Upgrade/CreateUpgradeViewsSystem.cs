@@ -23,6 +23,13 @@ namespace Ecs.Systems.Upgrade
                 var parent = buildings.Get2(i).View.Transform;
                 ref var upgradeViews = ref buildings.Get3(i);
 
+                if (upgradeViews.UpgradeViews.Count > 0)
+                {
+                    foreach (var resource in upgradeViews.UpgradeViews)
+                    {
+                        resource.DestroyView();
+                    }
+                }
                 upgradeViews.UpgradeViews = new List<IUpgradeView>(demandResource.Count);
                 foreach (var resource in demandResource)
                 {

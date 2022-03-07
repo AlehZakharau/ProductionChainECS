@@ -12,8 +12,7 @@ namespace Fabrics.BuildingsConfigs
         public int startLevel;
         public float radius;
         
-        [Header("Upgrade Demand Resource")] 
-        public Resource[] resources;
-        public int[] amountResource;
+        [Header("Upgrade Demand Resource")]
+        public UpgradeDemandResource[] upgradeDemandResources;
     }
 }

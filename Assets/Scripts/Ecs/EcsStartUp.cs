@@ -62,12 +62,12 @@ namespace Ecs
                 .Add(new ProductionSystem())
                 .Add(new ExtractorProductionSystem())
                 
-                .Add(new CreateUpgradeViewsSystem())
                 .Add(new AddUpgradeResourceSystem())
                 .Add(new CheckUpgradeOpportunitySystem())
                 .Add(new UpgradeSystem())
                 .Add(new ExtractorUpgradeSystem())
                 .Add(new BoroughUpgradeSystem())
+                .Add(new CreateUpgradeViewsSystem())
                 
                 .Add(new ClickExtractorSystem())
                 .Add(new ClickNotProductionSystem())

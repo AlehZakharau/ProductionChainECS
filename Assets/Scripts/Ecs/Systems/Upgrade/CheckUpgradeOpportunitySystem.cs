@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using DataBase;
+using Leopotam.Ecs;
 
 namespace Ecs.Systems.Upgrade
 {
@@ -18,6 +19,7 @@ namespace Ecs.Systems.Upgrade
                 if (CheckUpgradeResource(ref upgradeResource))
                 {
                     entity.Get<NewLevelComponent>().NewLevel = buildings.Get3(i).Level + 1;
+                    entity.Get<UpgradeViewsFlag>();
                 }
             }
         }

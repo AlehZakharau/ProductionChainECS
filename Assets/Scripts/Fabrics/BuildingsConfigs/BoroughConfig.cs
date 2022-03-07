@@ -10,9 +10,8 @@ namespace Fabrics.BuildingsConfigs
         [Header("Prefab")] public BoroughView boroughView;
         [Header("Building Data")]
         public int startLevel;
-        [Header("Upgrade Demand Resource")] 
-        public Resource[] resources;
-        public int[] amountResource;
+        [Header("Upgrade Demand Resource")]
+        public UpgradeDemandResource[] upgradeDemandResources;
         public int[] levelToOpenBorough;
     }
 }

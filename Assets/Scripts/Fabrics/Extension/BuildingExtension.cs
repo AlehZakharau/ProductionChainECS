@@ -5,6 +5,7 @@ using Ecs.Systems.Components;
 using Ecs.Systems.Manufacture.Production.Components;
 using Ecs.Systems.Upgrade;
 using Ecs.Towers.Components;
+using Ecs.View.Impl;
 using Fabrics.Templates;
 using Leopotam.Ecs;
 
@@ -24,13 +25,15 @@ namespace Fabrics.Extension
             extractorEntity.Get<ResourceComponent>().Resource = config.resource;
             extractorEntity.Get<LevelComponent>().Level = config.startLevel;
             extractorEntity.Get<NewLevelComponent>().NewLevel = config.startLevel;
-            extractorEntity.Get<UpgradeViewsComponent>();
+            extractorEntity.Get<UpgradeViewsComponent>().UpgradeViews = new List<IUpgradeView>();
+            extractorEntity.Get<UpgradeViewsFlag>();
             ref var upgrade = ref extractorEntity.Get<UpgradeResourcesComponent>();
             upgrade.DemandUpgradeResources = new Dictionary<Resource, int>();
 
-            for (var i = 0; i < config.resources.Length; i++)
+            var upgradeResource = config.upgradeDemandResources[0];
+            for (var i = 0; i < upgradeResource.resources.Length; i++)
             {
-                upgrade.DemandUpgradeResources.Add(config.resources[i], config.amountResource[i]);
+                upgrade.DemandUpgradeResources.Add(upgradeResource.resources[i], upgradeResource.amountResource[i]);
             }
 
             return extractorEntity;
@@ -45,13 +48,15 @@ namespace Fabrics.Extension
             towerEntity.Get<TowerRadius>().Radius = config.radius;
             towerEntity.Get<LevelComponent>().Level = config.startLevel;
             towerEntity.Get<NewLevelComponent>().NewLevel = config.startLevel;
-            towerEntity.Get<UpgradeViewsComponent>();
+            towerEntity.Get<UpgradeViewsComponent>().UpgradeViews = new List<IUpgradeView>();
+            towerEntity.Get<UpgradeViewsFlag>();
             ref var upgrade = ref towerEntity.Get<UpgradeResourcesComponent>();
             upgrade.DemandUpgradeResources = new Dictionary<Resource, int>();
 
-            for (var i = 0; i < config.resources.Length; i++)
+            var upgradeResource = config.upgradeDemandResources[0];
+            for (var i = 0; i < upgradeResource.resources.Length; i++)
             {
-                upgrade.DemandUpgradeResources.Add(config.resources[i], config.amountResource[i]);
+                upgrade.DemandUpgradeResources.Add(upgradeResource.resources[i], upgradeResource.amountResource[i]);
             }
 
             return towerEntity;
@@ -65,14 +70,15 @@ namespace Fabrics.Extension
             boroughEntity.Get<BoroughConfigComponent>().BoroughTemplate = boroughTemplate;
             boroughEntity.Get<LevelComponent>().Level = config.startLevel;
             boroughEntity.Get<NewLevelComponent>().NewLevel = config.startLevel;
-            boroughEntity.Get<UpgradeViewsComponent>();
+            boroughEntity.Get<UpgradeViewsComponent>().UpgradeViews = new List<IUpgradeView>();
             boroughEntity.Get<UpgradeViewsFlag>();
             ref var upgrade = ref boroughEntity.Get<UpgradeResourcesComponent>();
             upgrade.DemandUpgradeResources = new Dictionary<Resource, int>();
 
-            for (var i = 0; i < config.resources.Length; i++)
+            var upgradeResource = config.upgradeDemandResources[0];
+            for (var i = 0; i < upgradeResource.resources.Length; i++)
             {
-                upgrade.DemandUpgradeResources.Add(config.resources[i], config.amountResource[i]);
+                upgrade.DemandUpgradeResources.Add(upgradeResource.resources[i], upgradeResource.amountResource[i]);
             }
             
             return boroughEntity;
