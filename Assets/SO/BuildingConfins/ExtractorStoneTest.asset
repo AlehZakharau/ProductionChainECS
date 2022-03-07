@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ExtractorStoneTest
   m_EditorClassIdentifier: 
   extractorView: {fileID: 8814604580203847214, guid: 9ffee80e20da9e04f851ead954836255, type: 3}
-  startLevel: 1
+  startLevel: 0
   resource: 1
   productionSpeed: 1
   resources: 00000000

@@ -16,7 +16,7 @@ namespace Ecs.View
             Entity = entity;
         }
 
-        public void UpgradeBuilding(int level)
+        public virtual void UpgradeBuilding(int level)
         {
             Level = level;
         }

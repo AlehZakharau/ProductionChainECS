@@ -24,8 +24,8 @@ namespace Ecs.Systems.Transportation
                 if (speed.Timer >= destination / speed.Speed)
                 {
                     ref var senderResource = ref bridge.Sender.Get<ResourceComponent>();
-                    senderResource.ResourceAmount--;
-                    
+                    bridge.Sender.Get<ProduceComponent>().Amount = -1;
+
                     var transport = new TransportComponent { Resource = senderResource.Resource, Amount = 1 };
                     bridge.Receiver.Get<TransportComponent>() = transport;
                     

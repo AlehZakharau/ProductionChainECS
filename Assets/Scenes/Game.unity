@@ -9803,7 +9803,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554628576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.59, y: 10.58, z: -0.03661947}
+  m_LocalPosition: {x: -4.23, y: 10.15, z: -0.03661947}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -35820,7 +35820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2066551141}
   m_Layer: 0
-  m_Name: ------------------------------ (1)
+  m_Name: ------------------------------
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38658,7 +38658,7 @@ PrefabInstance:
       objectReference: {fileID: 2004449632}
     - target: {fileID: 4569708804447308182, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
       propertyPath: towerTemplates.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4569708804447308182, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
       propertyPath: boroughTemplates.Array.size
@@ -38671,7 +38671,7 @@ PrefabInstance:
     - target: {fileID: 4569708804447308182, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
       propertyPath: towerTemplates.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1159025147}
     - target: {fileID: 4569708804447308182, guid: 037032192d08d514aa6ba7625cdfdb8b, type: 3}
       propertyPath: extractorTemplates.Array.size
       value: 2

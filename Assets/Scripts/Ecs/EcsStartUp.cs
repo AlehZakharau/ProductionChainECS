@@ -88,7 +88,6 @@ namespace Ecs
                 .Inject(controls)
                 .Inject(gameConfig)
                 
-                .OneFrame<ProduceFlag>()
                 .OneFrame<NewLevelComponent>()
                 .OneFrame<UpgradedFlag>()
                 .OneFrame<CheckUpgradeOpportunityFlag>()
