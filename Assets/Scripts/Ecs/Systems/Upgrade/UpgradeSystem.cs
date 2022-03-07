@@ -12,16 +12,11 @@ namespace Ecs.Systems.Upgrade
             if (buildings.IsEmpty()) return;
             
             foreach (var i in buildings)
-            { 
+            {
+                var newLevel = buildings.Get1(i).NewLevel;
                 buildings.Get3(i).View.UpgradeBuilding(buildings.Get1(i).NewLevel);
-                buildings.Get2(i).Level++;
                 ref var level = ref buildings.Get2(i);
-                level.Level++;
-
-                if (level.Level == 0)
-                {
-                    
-                }
+                level.Level = newLevel;
 
                 var entity = buildings.GetEntity(i);
                 entity.Get<UpgradedFlag>();

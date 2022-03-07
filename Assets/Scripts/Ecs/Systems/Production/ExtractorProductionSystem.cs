@@ -20,7 +20,9 @@ namespace Ecs.Systems.Manufacture.Production
                 view.AddResource(resource.ResourceAmount);
                 var extractorEntity = extractors.GetEntity(i);
                 extractorEntity.Del<ProduceComponent>();
-                //Debug.Log($"Producing {entity.Get<LinkComponent>().View.Transform.gameObject.name}: {resource.ResourceAmount} ");
+                // Debug.Log($"Producing {extractorEntity.Get<LinkComponent>().View.Transform.gameObject.name}: " +
+                //           $"{resource.ResourceAmount} {extractorEntity.Has<ProduceComponent>()}" +
+                //           $"\n {extractorEntity.GetComponentsCount().ToString()}");
             }
         }
     }

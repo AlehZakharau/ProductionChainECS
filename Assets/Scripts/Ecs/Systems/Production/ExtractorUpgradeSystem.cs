@@ -15,6 +15,7 @@ namespace Ecs.Systems.Manufacture.Production
             {
                 ref var speed = ref extractors.Get2(i);
                 var currentLevel = extractors.Get3(i).Level;
+                if(currentLevel < 0) return;
                 speed.ProductionSpeed *= gameConfig.UpgradeSettings.extractorProductionSpeedCoefficient[currentLevel];
             }
         }

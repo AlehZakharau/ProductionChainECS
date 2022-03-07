@@ -10,7 +10,7 @@ namespace Ecs.Towers
 {
     public sealed class OpenTilesSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<Systems.Components.Tower, UpgradedFlag, TowerRadius, LevelComponent, LinkComponent> tower = default;
+        private readonly EcsFilter<Tower, UpgradedFlag, TowerRadius, LevelComponent, LinkComponent> tower = default;
         private readonly EcsFilter<Tile, LinkComponent>.Exclude<ActiveTileFlag> tiles = default;
         public void Run()
         {

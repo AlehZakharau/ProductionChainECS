@@ -15,11 +15,12 @@ namespace Ecs.Systems.Manufacture.Production
             foreach (var i in manufactures)
             {
                 var currentLevel = manufactures.Get3(i).Level;
-                if(currentLevel < 0) return;
+                if(currentLevel < 0) continue;
                 ref var productionSpeed = ref manufactures.Get2(i);
                 productionSpeed.Timer += Time.deltaTime;
                 if (productionSpeed.Timer > productionSpeed.ProductionSpeed)
                 {
+                    //Debug.Log($" Produce Component, Current level {currentLevel} ProductionSpeed {productionSpeed.ProductionSpeed}");
                     manufactures.GetEntity(i).Get<ProduceComponent>().Amount = 1;
                     productionSpeed.Timer = 0;
                 }
