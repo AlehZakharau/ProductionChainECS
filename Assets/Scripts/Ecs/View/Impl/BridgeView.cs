@@ -1,4 +1,6 @@
 ﻿using CameraService;
+using Ecs.Systems.Transportation;
+using Ecs.Systems.Transportation.Components;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -37,6 +39,8 @@ namespace Ecs.View.Impl
 
         public void Cancel()
         {
+            var sender = Entity.Get<TransportBridgeComponent>().Sender;
+            sender.Del<SenderBusyFlag>();
             Entity.Destroy();
             
             Destroy(gameObject);

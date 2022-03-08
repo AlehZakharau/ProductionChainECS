@@ -33,7 +33,11 @@ namespace Ecs.Systems.Manufacture.Production
             ref UpgradeResourcesComponent upgradeResourcesComponent, int level)
         {
             level++;
-            if(level >= config.maxLevel) return;
+            if (level >= config.upgradeDemandResources.Length)
+            {
+                upgradeResourcesComponent.DemandUpgradeResources = new Dictionary<Resource, int>();
+                return;
+            }
             upgradeResourcesComponent.DemandUpgradeResources = new Dictionary<Resource, int>();
             var upgradeResource = config.upgradeDemandResources[level];
             for (var i = 0; i < upgradeResource.resources.Length; i++)

@@ -11,7 +11,6 @@ namespace Fabrics.BuildingsConfigs
         [Header("Prefab")] public ExtractorView extractorView;
         [Header("Building Data")]
         public int startLevel;
-        public int maxLevel;
         [Header("Extractor Data")]
         public Resource resource;
         public float productionSpeed;

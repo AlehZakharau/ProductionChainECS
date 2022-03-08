@@ -1,6 +1,8 @@
 ﻿using Ecs.Components;
 using Ecs.Systems.Manufacture.Production.Components;
 using Ecs.Systems.Transportation.Components;
+using Ecs.Systems.Upgrade;
+using Ecs.View.Impl;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -8,7 +10,7 @@ namespace Ecs.Systems.Transportation
 {
     public sealed class BridgeSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<TransportBridgeComponent, TransportationSpeedComponent> bridges;
+        private readonly EcsFilter<TransportBridgeComponent, TransportationSpeedComponent> bridges = default;
         public void Run()
         {
             foreach (var i in bridges)
@@ -24,14 +26,37 @@ namespace Ecs.Systems.Transportation
                 if (speed.Timer >= destination / speed.Speed)
                 {
                     ref var senderResource = ref bridge.Sender.Get<ResourceComponent>();
-                    bridge.Sender.Get<ProduceComponent>().Amount = -1;
+                    if (CheckReceiver(bridge.Receiver, senderResource.Resource))
+                    {
+                        bridge.Sender.Get<ProduceComponent>().Amount = -1;
 
-                    var transport = new TransportComponent { Resource = senderResource.Resource, Amount = 1 };
-                    bridge.Receiver.Get<TransportComponent>() = transport;
+                        var transport = new TransportComponent { Resource = senderResource.Resource, Amount = 1 };
+                        bridge.Receiver.Get<TransportComponent>() = transport;
                     
-                    speed.Timer = 0f;
+                        speed.Timer = 0f;
+                    }
+                    else
+                    {
+                        var bridgeView = (BridgeView)bridges.GetEntity(i).Get<LinkComponent>().View;
+                        bridgeView.Cancel();
+                    }
                 }
             }
         }
+
+        private bool CheckReceiver(EcsEntity receiver, Resource senderResource)
+        {
+            var resources = receiver.Get<UpgradeResourcesComponent>().DemandUpgradeResources;
+
+            foreach (var resource in resources)
+            {
+                if (senderResource == resource.Key && resource.Value > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
     }
 }

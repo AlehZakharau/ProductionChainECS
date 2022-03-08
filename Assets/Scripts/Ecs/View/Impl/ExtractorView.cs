@@ -13,6 +13,7 @@ namespace Ecs.View.Impl
         [SerializeField] private SpriteRenderer tileRender;
         [SerializeField] private SpriteRenderer manufactureRender;
         [SerializeField] private TMP_Text resourceAmountText;
+        [SerializeField] private TMP_Text levelText;
 
         private SpriteRenderer currentTile;
 
@@ -53,6 +54,8 @@ namespace Ecs.View.Impl
             {
                 Activate();
             }
+            level++;
+            levelText.text = level.ToString();
         }
 
         private void Activate()

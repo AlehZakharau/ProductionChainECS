@@ -8,8 +8,8 @@ namespace Ecs.Systems.Transportation
 {
     public sealed class BridgeInstantiateSystem : IEcsRunSystem
     {
-        private readonly IBuildingConstructor buildingConstructor;
-        private readonly EcsFilter<Bridge, NewBridgeFlag, TransportBridgeComponent> bridge;
+        private readonly IBuildingConstructor buildingConstructor = null;
+        private readonly EcsFilter<Bridge, NewBridgeFlag, TransportBridgeComponent> bridge = default;
         public void Run()
         {
             foreach (var i in bridge)

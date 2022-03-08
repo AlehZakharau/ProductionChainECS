@@ -26,6 +26,10 @@ namespace Ecs.Systems.Upgrade
 
         private bool CheckUpgradeResource(ref UpgradeResourcesComponent upgradeResourcesComponent)
         {
+            if (upgradeResourcesComponent.DemandUpgradeResources.Count < 1)
+            {
+                return false;
+            }
             foreach (var resource in upgradeResourcesComponent.DemandUpgradeResources.Keys)
             {
                 if (upgradeResourcesComponent.DemandUpgradeResources[resource] > 0)
