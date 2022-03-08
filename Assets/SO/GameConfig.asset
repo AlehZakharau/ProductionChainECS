@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   tileSettings:
+    poolRadius: 1500
     upgradeViewCenterY: -3
     upgradeViewSize: 9
   upgradeSettings:

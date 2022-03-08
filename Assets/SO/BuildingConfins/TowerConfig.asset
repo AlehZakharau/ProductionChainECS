@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerView: {fileID: 81908264396089611, guid: 16b67f7d989737b45b7c901e1fdb6aa2, type: 3}
   startLevel: -1
-  radius: 25
+  radius: 100
   upgradeDemandResources:
-  - resources: 
-    amountResource: 
+  - resources: 00000000
+    amountResource: 01000000

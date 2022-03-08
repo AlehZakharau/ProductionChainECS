@@ -9,14 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbe4ef2235494c4fa8e163162bfd977b, type: 3}
-  m_Name: BoroughConfig
+  m_Script: {fileID: 11500000, guid: 7748627f63e64949992a8c91216eac1e, type: 3}
+  m_Name: ExtractorWoodTest 1
   m_EditorClassIdentifier: 
-  boroughView: {fileID: 464232342594841592, guid: 61430a586a4ac9c41934629448c629e1, type: 3}
+  extractorView: {fileID: 8814604580203847214, guid: 30253feea1815b547b1bc1868b119773, type: 3}
   startLevel: -1
+  resource: 0
+  productionSpeed: 1
   upgradeDemandResources:
   - resources: 00000000
-    amountResource: 01000000
-  - resources: 00000000
-    amountResource: 03000000
-  levelToOpenBorough: 01000000
+    amountResource: 02000000
+  - resources: 
+    amountResource: 

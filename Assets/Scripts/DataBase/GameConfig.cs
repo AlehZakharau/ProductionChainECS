@@ -23,6 +23,7 @@ namespace DataBase
     [Serializable]
     public class TileSettings
     {
+        public float poolRadius = 500;
         public float upgradeViewCenterY;
         public float upgradeViewSize;
     }

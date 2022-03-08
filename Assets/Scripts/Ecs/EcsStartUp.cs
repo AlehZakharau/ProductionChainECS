@@ -67,6 +67,7 @@ namespace Ecs
                 .Add(new UpgradeSystem())
                 .Add(new ExtractorUpgradeSystem())
                 .Add(new BoroughUpgradeSystem())
+                .Add(new TowerUpgradeOpenTilesSystem())
                 .Add(new CreateUpgradeViewsSystem())
                 
                 .Add(new ClickExtractorSystem())
@@ -76,7 +77,6 @@ namespace Ecs
                 .Add(new ClearTransportSystem())
                 .Add(new CancelSystem())
                 
-                .Add(new OpenTilesSystem())
                 
                 .Add(new AvailableCheckingCameraSystem())
                 .Add(new RequestTilePoolSystem())

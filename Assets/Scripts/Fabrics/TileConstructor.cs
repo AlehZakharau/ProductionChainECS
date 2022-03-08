@@ -40,6 +40,7 @@ namespace Fabrics
                 if (view.active)
                 {
                     tileEntity.Get<ActiveTileFlag>();
+                    tileEntity.Get<Pooled>();
                 }
                 
 

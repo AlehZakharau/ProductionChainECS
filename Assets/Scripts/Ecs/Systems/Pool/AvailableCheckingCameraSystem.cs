@@ -1,4 +1,5 @@
-﻿using Ecs.Components;
+﻿using DataBase;
+using Ecs.Components;
 using Ecs.Systems.Pool.Components;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -7,6 +8,7 @@ namespace Ecs.Systems.Pool
 {
     public class AvailableCheckingCameraSystem : IEcsRunSystem
     {
+        private readonly IGameConfig gameConfig = null;
         private readonly EcsFilter<CameraComponent, LinkComponent> camera = default;
         private readonly EcsFilter<Available, LinkComponent> available = default;
         private readonly EcsFilter<Pooled, LinkComponent>.Exclude<Available> notAvailable = default;
@@ -43,7 +45,7 @@ namespace Ecs.Systems.Pool
         private bool CheckDistance(Vector3 availablePosition, Vector3 cameraPosition)
         {
             var offset = (availablePosition - cameraPosition).sqrMagnitude;
-            return offset > 500;
+            return offset > gameConfig.TileSettings.poolRadius;
         }
     }
 }
