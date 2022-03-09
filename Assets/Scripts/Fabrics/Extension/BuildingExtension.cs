@@ -8,6 +8,7 @@ using Ecs.Towers.Components;
 using Ecs.View.Impl;
 using Fabrics.Templates;
 using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Fabrics.Extension
 {
@@ -65,6 +66,7 @@ namespace Fabrics.Extension
         public static EcsEntity CreateBorough(this EcsWorld world, IBoroughTemplate boroughTemplate)
         {
             var config = boroughTemplate.BoroughConfig;
+            Debug.Log($"Extension : {boroughTemplate.Transform.gameObject.name}");
             var boroughEntity = world.NewEntity();
             boroughEntity.Get<Borough>();
             boroughEntity.Get<BoroughConfigComponent>().BoroughTemplate = boroughTemplate;

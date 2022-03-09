@@ -39,6 +39,7 @@ namespace Ecs.View.Impl
 
         public void Cancel()
         {
+            if(Entity.IsNull()) return;
             var sender = Entity.Get<TransportBridgeComponent>().Sender;
             sender.Del<SenderBusyFlag>();
             Entity.Destroy();

@@ -115,7 +115,9 @@ namespace Fabrics
 
         public void CreateBorough(IBoroughTemplate template)
         {
+            Debug.Log($"Template: {template.Transform.gameObject}");
             var config = template.BoroughConfig;
+            Debug.Log($"Config {config.name}");
             var instance = buildingFabric.CreateBuilding(config.boroughView.gameObject, template.Transform.position);
             var view = instance.GetComponent<ILinkable>();
             view.Transform.SetParent(template.Transform);

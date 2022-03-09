@@ -38,7 +38,6 @@ namespace Ecs.Towers
                         tileEntity.Get<Pooled>();
                         tileEntity.Get<Available>();
                         tileEntity.Get<RequestPoolFlag>();
-                        Debug.Log($"Activate");
                     }
                 }
             }

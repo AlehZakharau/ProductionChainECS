@@ -1,4 +1,5 @@
-﻿using Ecs.Components;
+﻿using DataBase;
+using Ecs.Components;
 using Ecs.Systems.Manufacture.Production.Components;
 using Ecs.Systems.Transportation.Components;
 using Ecs.Systems.Upgrade;
@@ -10,6 +11,7 @@ namespace Ecs.Systems.Transportation
 {
     public sealed class BridgeSystem : IEcsRunSystem
     {
+        private readonly IGameConfig gameConfig = null;
         private readonly EcsFilter<TransportBridgeComponent, TransportationSpeedComponent> bridges = default;
         public void Run()
         {
@@ -23,7 +25,7 @@ namespace Ecs.Systems.Transportation
 
                 var destination = Vector3.Distance(receiverView.Transform.position, senderView.Transform.position);
                 speed.Timer += Time.deltaTime;
-                if (speed.Timer >= destination / speed.Speed)
+                if (speed.Timer >= destination / (speed.Speed * gameConfig.TileSettings.transportationSpeed))
                 {
                     ref var senderResource = ref bridge.Sender.Get<ResourceComponent>();
                     if (CheckReceiver(bridge.Receiver, senderResource.Resource))

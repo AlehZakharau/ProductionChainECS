@@ -1,5 +1,6 @@
 ﻿using Ecs.Components;
 using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Ecs.Systems.Upgrade
 {
@@ -17,9 +18,11 @@ namespace Ecs.Systems.Upgrade
                 buildings.Get3(i).View.UpgradeBuilding(buildings.Get1(i).NewLevel);
                 ref var level = ref buildings.Get2(i);
                 level.Level = newLevel;
+                Debug.Log($"Building Level {buildings.Get3(i).View.Transform.gameObject.name} : {newLevel}");
 
                 var entity = buildings.GetEntity(i);
                 entity.Get<UpgradedFlag>();
+                entity.Del<NewLevelComponent>();
             }   
         }
     }

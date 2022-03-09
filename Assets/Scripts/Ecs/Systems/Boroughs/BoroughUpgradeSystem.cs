@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Ecs.Components;
 using Ecs.Systems.Components;
 using Ecs.Systems.Upgrade;
 using Fabrics;
@@ -12,16 +13,19 @@ namespace Ecs.Boroughs
     {
         private readonly IBuildingConstructor buildingConstructor = null;
         private readonly EcsFilter<Borough, LevelComponent, 
-            BoroughConfigComponent, UpgradeResourcesComponent, BoroughConfigComponent, UpgradedFlag> boroughs = default; 
+            BoroughConfigComponent, UpgradedFlag> boroughs = default; 
         public void Run()
         {
             foreach (var i in boroughs)
             {
                 var currentLevel = boroughs.Get2(i).Level;
                 ref var config = ref boroughs.Get3(i);
+
+                var boroughEntity = boroughs.GetEntity(i);
                 
-                UpgradeDemandResource(boroughs.Get5(i).BoroughTemplate.BoroughConfig, 
-                    ref boroughs.Get4(i), currentLevel);
+                
+                UpgradeDemandResource(boroughEntity.Get<BoroughConfigComponent>().BoroughTemplate.BoroughConfig, 
+                    ref boroughEntity.Get<UpgradeResourcesComponent>(), currentLevel);
                 
                 if (config.BoroughTemplate.BoroughConfig.levelToOpenBorough.Length <= config.NewBoroughsIndex)
                 {
@@ -29,7 +33,7 @@ namespace Ecs.Boroughs
                     return;
                 }
                 if (config.BoroughTemplate.BoroughConfig.levelToOpenBorough[config.NewBoroughsIndex]
-                    == currentLevel)
+                    == currentLevel && config.BoroughTemplate.HasChildBorough)
                 {
                     buildingConstructor.CreateBorough(config.BoroughTemplate.NewBoroughs[config.NewBoroughsIndex]);
                     config.NewBoroughsIndex++;
