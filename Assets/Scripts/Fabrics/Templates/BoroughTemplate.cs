@@ -21,5 +21,10 @@ namespace Fabrics.Templates
         public Transform Transform => transform;
         public BoroughConfig BoroughConfig => boroughConfig;
         public BoroughTemplate[] NewBoroughs => boroughTemplates;
+        
+        void OnDrawGizmos()
+        {
+            Gizmos.DrawIcon(transform.position, "Tower.png", true);
+        }
     }
 }

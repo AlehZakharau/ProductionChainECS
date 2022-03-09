@@ -12,7 +12,10 @@ GameObject:
   - component: {fileID: 554230681924645163}
   - component: {fileID: 554230681924645157}
   - component: {fileID: 554230681924645156}
-  m_Layer: 0
+  - component: {fileID: 1461473530283584164}
+  - component: {fileID: 7708651778767953924}
+  - component: {fileID: 2755427374045548609}
+  m_Layer: 6
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,5 +118,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f469a0a87304f4481096a01a68d5126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   animator: {fileID: 0}
   sprite: {fileID: 554230681924645163}
+--- !u!65 &1461473530283584164
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554230681924645161}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2631364, y: 3.8998322, z: 0.2}
+  m_Center: {x: 0.003957987, y: -0.025533915, z: 0}
+--- !u!65 &7708651778767953924
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554230681924645161}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1181483, y: 2.7456844, z: 0.2}
+  m_Center: {x: -0.061606586, y: -0.13763368, z: 0}
+--- !u!65 &2755427374045548609
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554230681924645161}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.0416956, y: 1.1770172, z: 0.2}
+  m_Center: {x: -0.011782765, y: -0.14326876, z: 0}

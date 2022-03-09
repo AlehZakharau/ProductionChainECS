@@ -15,5 +15,10 @@ namespace Fabrics.Templates
         public Transform Transform => transform;
         public TowerConfig TowerConfig => towerConfig;
         public Building Building => Building.Tower;
+        
+        void OnDrawGizmos()
+        {
+            Gizmos.DrawIcon(transform.position, "Tower.png", true);
+        }
     }
 }

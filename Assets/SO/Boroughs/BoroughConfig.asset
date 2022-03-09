@@ -19,4 +19,4 @@ MonoBehaviour:
     amountResource: 01000000
   - resources: 00000000
     amountResource: 03000000
-  levelToOpenBorough: 01000000
+  levelToOpenBorough: 00000000
