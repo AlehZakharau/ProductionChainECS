@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
 
 namespace Ecs.PlayerInput
 {
-    public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem
+    public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
     {
         private readonly EcsWorld world = null;
         private readonly Controls controls = null;
@@ -18,11 +18,13 @@ namespace Ecs.PlayerInput
 
         private IClickable currentClickable;
         private int clickableMask;
+        private CameraView cameraView;
         public void Init()
         {
             controls.Enable();
             clickableMask = LayerMask.GetMask("Manufacture");
             controls.Clicks.LeftClick.canceled += LeftClickOnCanceled;
+            cameraView = (CameraView)camera.Get2(0).View;
         }
 
         public void Run()
@@ -30,7 +32,6 @@ namespace Ecs.PlayerInput
             var leftClick = controls.Clicks.LeftClick.triggered;
             var rightClick = controls.Clicks.RightClick.triggered;
             var cursorPosition = controls.Clicks.CursorPosition.ReadValue<Vector2>();
-            var cameraView = (CameraView)camera.Get2(0).View;
             if (leftClick)
             {
                 var ray = cameraView.camera.ScreenPointToRay(cursorPosition);
@@ -58,6 +59,12 @@ namespace Ecs.PlayerInput
         private void LeftClickOnCanceled(InputAction.CallbackContext obj)
         {
             world.NewEntity().Get<CameraMovementDisableFlag>();
+        }
+
+        public void Destroy()
+        {
+            controls.Clicks.LeftClick.canceled -= LeftClickOnCanceled;
+            controls.Disable();
         }
     }
 }
