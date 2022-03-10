@@ -22,21 +22,23 @@ namespace Ecs.Systems.PlayerInput
             foreach (var i in enable)
             {
                 isMoving = true;
-                var cursorPosition = controls.Clicks.CursorPosition.ReadValue<Vector2>();
+                var cursorPosition = GetCursorPosition();
                 var cameraView = (CameraView)camera.Get2(0).View;
                 var cursorWorldPosition = cameraView.camera.ScreenToWorldPoint(
                     new Vector3(cursorPosition.x, cursorPosition.y, cameraView.camera.transform.position.z));
                 offset = cameraView.Transform.position - cursorWorldPosition;
+                Debug.Log($"Moving True");
             }
 
             foreach (var i in disable)
             {
                 isMoving = false;
+                Debug.Log($"Moving false, camera is alive? {camera.Get2(0).View.Transform.gameObject.name}");
             }
 
             if (isMoving)
             {
-                var cursorPosition = controls.Clicks.CursorPosition.ReadValue<Vector2>();
+                var cursorPosition = GetCursorPosition();
                 var cameraView = (CameraView)camera.Get2(0).View;
                 var cursorWorldPosition = cameraView.camera.ScreenToWorldPoint(
                     new Vector3(cursorPosition.x, cursorPosition.y, cameraView.camera.transform.position.z));
@@ -44,7 +46,17 @@ namespace Ecs.Systems.PlayerInput
                 cameraView.Transform.position = Vector3.Lerp(cameraView.Transform.position, cameraPosition,
                     cameraView.smoothness * Time.deltaTime);
             }
-            
+        }
+
+
+        private Vector2 GetCursorPosition()
+        {
+#if UNITY_ANDROID
+            return controls.Touch.PrimatyPosition.ReadValue<Vector2>();
+#else
+            return controls.Clicks.CursorPosition.ReadValue<Vector2>();
+#endif
+
         }
     }
 }

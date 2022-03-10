@@ -56,11 +56,11 @@ namespace Ecs
             systems = new EcsSystems(world);
             
             systems
-// #if UNITY_ANDROID
-               .Add(new MobileInputSystem())
-// #else
-//                 .Add(new PlayerInputSystem())
-// #endif
+#if UNITY_ANDROID
+                .Add(new MobileInputSystem())
+#else
+                .Add(new PlayerInputSystem())
+#endif
                 .Add(new CameraMovementSystem())
                 
                 .Add(new ProductionSystem())

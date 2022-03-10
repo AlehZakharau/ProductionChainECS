@@ -67,11 +67,14 @@ namespace Ecs.Systems.PlayerInput
 
         private void DetectSwipe()
         {
+            Debug.Log($"Call method Detect Swipe");
             if (Vector3.Distance(startPosition, endPosition) >= 0.1f && (endTime - startTime) <= 1f)
             {
+                Debug.Log($"Swipe Detected");
                 var direction = (endPosition - startPosition).normalized;
                 if (Vector2.Dot(Vector2.down, direction) > 0.9f)
                 {
+                    Debug.Log($"Swipe Up");
                     Debug.DrawLine(startPosition, endPosition, Color.blue, 5f);
                     currentClickable?.Cancel();
                     currentClickable?.UnSelect();
