@@ -3,7 +3,10 @@
     public enum Resource
     {
         Wood,
-        Stone
+        Stone,
+        Coal,
+        IronOre,
+        GoldOre
     }
 
     public enum Building
