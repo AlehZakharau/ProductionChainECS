@@ -29,6 +29,15 @@ namespace Fabrics.Templates
                     case Resource.Stone:
                         Gizmos.DrawIcon(transform.position, "Stone.png", true);
                         break;
+                    case Resource.Coal:
+                        Gizmos.DrawIcon(transform.position, "Coal.png", true);
+                        break;
+                    case Resource.GoldOre:
+                        Gizmos.DrawIcon(transform.position, "Ore.png", true);
+                        break;
+                    case Resource.IronOre:
+                        Gizmos.DrawIcon(transform.position, "Ore.png",true);
+                        break;
                     default:
                         throw new Exception("You need add Icon for new type of resource");
                 }

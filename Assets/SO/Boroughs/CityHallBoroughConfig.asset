@@ -19,4 +19,12 @@ MonoBehaviour:
     amountResource: 02000000
   - resources: 0000000001000000
     amountResource: 0300000002000000
-  levelToOpenBorough: feffffff
+  - resources: 0000000001000000
+    amountResource: 0300000002000000
+  - resources: 0000000001000000
+    amountResource: 0300000002000000
+  - resources: 0000000001000000
+    amountResource: 0300000002000000
+  - resources: 0000000001000000
+    amountResource: 0300000002000000
+  levelToOpenBorough: 000000000100000002000000030000000400000005000000
