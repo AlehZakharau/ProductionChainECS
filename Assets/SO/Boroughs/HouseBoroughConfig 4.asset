@@ -15,8 +15,6 @@ MonoBehaviour:
   boroughView: {fileID: 464232342594841592, guid: 2193755c104b66d4180b9348ea373a4a, type: 3}
   startLevel: -1
   upgradeDemandResources:
-  - resources: 00000000
-    amountResource: 02000000
-  - resources: 0000000001000000
-    amountResource: 0300000002000000
+  - resources: 000000000100000003000000
+    amountResource: 190000002300000005000000
   levelToOpenBorough: feffffff

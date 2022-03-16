@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: ExtractorCoal
   m_EditorClassIdentifier: 
   extractorView: {fileID: 8814604580203847214, guid: 134155b4ae7760c468600eecedba4218, type: 3}
-  startLevel: 0
+  startLevel: -1
   resource: 2
   productionSpeed: 1
   upgradeDemandResources:
-  - resources: 
-    amountResource: 
-  - resources: 
-    amountResource: 
+  - resources: 0000000001000000
+    amountResource: 0a00000005000000

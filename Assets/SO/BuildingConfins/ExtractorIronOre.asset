@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: ExtractorIronOre
   m_EditorClassIdentifier: 
   extractorView: {fileID: 8814604580203847214, guid: b83669745c0adfa43b6f42a046e4a7c4, type: 3}
-  startLevel: 0
+  startLevel: -1
   resource: 3
   productionSpeed: 1
   upgradeDemandResources:
-  - resources: 
-    amountResource: 
-  - resources: 
-    amountResource: 
+  - resources: 000000000200000001000000
+    amountResource: 190000000500000023000000

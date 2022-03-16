@@ -19,5 +19,3 @@ MonoBehaviour:
   upgradeDemandResources:
   - resources: 00000000
     amountResource: 01000000
-  - resources: 0000000001000000
-    amountResource: 0300000001000000

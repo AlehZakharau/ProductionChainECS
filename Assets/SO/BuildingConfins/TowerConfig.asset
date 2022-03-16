@@ -16,5 +16,5 @@ MonoBehaviour:
   startLevel: -1
   radius: 100
   upgradeDemandResources:
-  - resources: 00000000
-    amountResource: 01000000
+  - resources: 0000000001000000
+    amountResource: 0500000003000000
